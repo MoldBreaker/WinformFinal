@@ -23,15 +23,35 @@ Sau đó, tìm 2 files App.config.example trong hai thư mục `DAL/` và `Forms
 			<add name="DBContext" connectionString="Dán_connection_string_vào_đây" providerName="System.Data.SqlClient" />
 		</connectionStrings>
 
- 4. Như đoạn chữ trên, dán connection string vào chỗ trương ứng, xem cách lấy connection string [tại đây](https://github.com/MoldBreaker/WinformFinal/tree/main#4-c%C3%A1ch-l%E1%BA%A5y-connection-string)
+ 4. Như đoạn chữ trên, dán connection string vào chỗ trương ứng, xem cách lấy connection string [tại đây](https://github.com/MoldBreaker/WinformFinal#4-c%C3%A1ch-l%E1%BA%A5y-connection-string)
 
 ## 2. Hướng dẫn set up môi trường làm việc cá nhân
+Lưu ý: Nên hạn chế tối đa việc push thẳng vào nhánh `main`. 
 
-<p align="center">Sẽ được cập nhật</p>
+Tạo nhánh cá nhân:
+
+    git checkout -b <tên_nhánh_mới>
+     
+ Code...
+ Lần đầu push:
+ 
+    git add .
+    git commit -m "nội_dung_muốn_commit"
+    git push --set-upstream origin <tên_nhánh_mới>
 
 ## 3. Quy trình pull và push
+Lưu ý: Chỉ đọc phần này sau khi đã thực hiện thành công phần 2. [tại đây](https://github.com/MoldBreaker/WinformFinal#2-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-set-up-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-l%C3%A0m-vi%E1%BB%87c-c%C3%A1-nh%C3%A2n)
+<br>
+Trước khi code, hãy luôn cập nhật code mới nhất từ `main` về
 
-<p align="center">Sẽ được cập nhật</p>
+    git pull origin main
+    
+  Code...
+  Trước khi push phải đảm bảo đang ở nhánh cá nhân:
+  
+    git add .
+    git commit -m "nội_dung_muốn_commit"
+    git push
 
 ## 4. Cách lấy connection string
 
