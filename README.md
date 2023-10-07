@@ -22,7 +22,7 @@ Sau đó, tìm 2 files App.config.example trong hai thư mục `DAL/` và `Forms
 			<add name="DBContext" connectionString="Dán_connection_string_vào_đây" providerName="System.Data.SqlClient" />
 		</connectionStrings>
 
- 4. Như đoạn chữ trên, dán connection string vào chỗ trương ứng, xem cách lấy connection string [tại đây]()
+ 4. Như đoạn chữ trên, dán connection string vào chỗ trương ứng, xem cách lấy connection string [tại đây](https://github.com/MoldBreaker/WinformFinal/tree/main#4-c%C3%A1ch-l%E1%BA%A5y-connection-string)
 
 ## 2. Hướng dẫn set up môi trường làm việc cá nhân
 
