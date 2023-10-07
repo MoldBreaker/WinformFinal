@@ -1,3 +1,4 @@
+
 <h1 align="center">Đồ án cuối kì lập trình window nhóm 11</h1>
 
 ## 1. Hướng dẫn chạy project lần đầu
@@ -34,6 +35,7 @@ Sau đó, tìm 2 files App.config.example trong hai thư mục `DAL/` và `Forms
 
 ## 4. Cách lấy connection string
 
+Lưu ý: khi lấy connection string có thể sẽ hiện mấy lỗi, những lỗi này do trong project chưa có file `App.config`, nếu gặp cứ bỏ qua.
  1. Mở Visual Studio
  2. Chuột phải bất kì project nào > Add > New Item...
 <p align="center">
