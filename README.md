@@ -55,6 +55,8 @@ Lưu ý: khi lấy connection string có thể sẽ hiện mấy lỗi, những 
 <img src="https://res.cloudinary.com/dhbe3yp0y/image/upload/v1696666678/samples/Screenshot_2023-10-07_151714_zlalod.png" >
 </img>
 </p>
+
+ 6. Copy đoạn connection string trên vào 2 files `App.config` là xong.
 <hr>
 <p align="center">Hết</p>
 
