@@ -20,10 +20,7 @@ namespace Forms
             InitializeComponent();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void frmDangKi_Load(object sender, EventArgs e)
         {
@@ -60,14 +57,13 @@ namespace Forms
             }
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        
     }
 }

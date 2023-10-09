@@ -19,6 +19,9 @@ namespace BLL
             if(user.Password.Trim().Length == 0)
             {
                 throw new Exception("Mật khẩu không được để trống");
+            }else if (!Validator.IsValidPassword(user.Password))
+            {
+                throw new Exception("Không đúng định dạng mật khẩu!");
             }
 
             if(user.Email.Trim().Length == 0)

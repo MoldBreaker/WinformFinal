@@ -20,5 +20,11 @@ namespace BLL
             Regex regex = new Regex(@"^(?:\+84|0)(?:3[2-9]|5[2689]|7[0|6-9]|8[1-9]|9[0-9])\d{7}$");
             return regex.Match(phone).Success;
         }
+
+        public static bool IsValidPassword(string password)
+        {
+            Regex regex = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
+            return regex.Match(password).Success;
+        }
     }
 }

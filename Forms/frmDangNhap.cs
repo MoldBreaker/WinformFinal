@@ -14,8 +14,8 @@ namespace Forms
 {
     public partial class frmDangNhap : Form
     {
-        private RoleService roleService = new RoleService();
         private UserService userService = new UserService();
+
         public frmDangNhap()
         {
             InitializeComponent();
@@ -34,10 +34,11 @@ namespace Forms
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắn chắn muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-            {
-                e.Cancel = true;
-            }
+                if (MessageBox.Show("Bạn có chắn chắn muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            
         }
 
         private void btnDangKi_Click(object sender, EventArgs e)
@@ -52,8 +53,8 @@ namespace Forms
         {
             try
             {
-                string email = txtEmail.Text;
-                string password = txtMatKhau.Text;
+                string email = txtEmail.Text.Trim();
+                string password = txtMatKhau.Text.Trim();
 
                 User userLogin = new User();
                 userLogin.Email = email;
@@ -63,7 +64,7 @@ namespace Forms
                 MessageBox.Show("Đăng nhập thành công");
                 txtEmail.Text = "";
                 txtMatKhau.Text = "";
-                switch (user.RoleId)
+                switch (user.Role.RoleId)
                 {
                     case "KH":
                         frmKhachHang formKhachHang = new frmKhachHang();
@@ -87,6 +88,14 @@ namespace Forms
             }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtMatKhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnDangNhap_Click(sender, e);
             }
         }
     }
