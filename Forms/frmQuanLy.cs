@@ -12,9 +12,20 @@ namespace Forms
 {
     public partial class frmQuanLy : Form
     {
+        private bool IsLogout = false;
         public frmQuanLy()
         {
             InitializeComponent();
+        }
+
+        private void mnStripDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if(result == DialogResult.OK)
+            {
+                IsLogout = true;
+                this.Close();
+            }
         }
     }
 }
