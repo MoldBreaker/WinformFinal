@@ -1,0 +1,26 @@
+name: AutomaticMergeToMain
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  update-cms-master:
+    name: Merge master into release after a PR is merged
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Get Branch Name
+        id: branch-name
+        run: |
+          echo "GitHub Ref: ${{ github.ref }}"
+          echo "Branch Name: $BRANCH_NAME"
+      - name: merge
+        uses: mtanzi/action-automerge@v1
+        id: merge
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source: ${{ github.ref }}
+          target: 'main'
