@@ -10,5 +10,6 @@ namespace BLL
     public class AbstractService
     {
         protected RoleDAL RoleDAL = new RoleDAL();
+        protected UserDAL UserDAL = new UserDAL();
     }
 }
