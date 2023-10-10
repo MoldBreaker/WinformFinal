@@ -15,7 +15,6 @@ namespace DAL.Models
             Invoices = new HashSet<Invoice>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TableId { get; set; }
 
         [Required]

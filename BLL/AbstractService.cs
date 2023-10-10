@@ -11,5 +11,7 @@ namespace BLL
     {
         protected RoleDAL RoleDAL = new RoleDAL();
         protected UserDAL UserDAL = new UserDAL();
+        protected ProductCategoryDAL ProductCategoryDAL = new ProductCategoryDAL();
+        protected ProductDAL ProductDAL = new ProductDAL();
     }
 }

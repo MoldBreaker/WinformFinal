@@ -33,7 +33,7 @@ Create table [Product]
 	[ProductName] Nvarchar(100) NOT NULL,
 	[Image] Varchar(255) NULL,
 	[SellPrice] Float NOT NULL,
-	[Description] Text NULL,
+	[Description] Nvarchar(500) NULL,
 Primary Key ([ProductId])
 ) 
 go
@@ -48,7 +48,7 @@ go
 
 Create table [ProductCategory]
 (
-	[CategoryId] Integer NOT NULL,
+	[CategoryId] Integer Identity NOT NULL,
 	[CategoryName] Nvarchar(100) NOT NULL,
 Primary Key ([CategoryId])
 ) 
@@ -89,7 +89,7 @@ go
 
 Create table [Table]
 (
-	[TableId] Integer NOT NULL,
+	[TableId] Integer Identity NOT NULL,
 	[TableName] Nvarchar(50) NOT NULL,
 	[Status] Integer NOT NULL,
 Primary Key ([TableId])
@@ -121,5 +121,3 @@ Set quoted_identifier off
 go
 
 INSERT INTO [Role]([RoleId], [RoleName]) VALUES ('QL', N'Quản Lý'), ('NV', N'Nhân Viên'), ('KH', N'Khách Hàng');
-
-
