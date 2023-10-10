@@ -16,7 +16,6 @@ namespace DAL.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CategoryId { get; set; }
 
         [Required]
