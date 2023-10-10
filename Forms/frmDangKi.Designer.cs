@@ -79,20 +79,18 @@
             // txtMatKhau
             // 
             this.txtMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtMatKhau.Location = new System.Drawing.Point(215, 231);
-            this.txtMatKhau.Multiline = true;
+            this.txtMatKhau.Location = new System.Drawing.Point(215, 241);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '●';
-            this.txtMatKhau.Size = new System.Drawing.Size(264, 31);
+            this.txtMatKhau.Size = new System.Drawing.Size(264, 22);
             this.txtMatKhau.TabIndex = 3;
             // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtEmail.Location = new System.Drawing.Point(215, 130);
-            this.txtEmail.Multiline = true;
+            this.txtEmail.Location = new System.Drawing.Point(215, 138);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(264, 31);
+            this.txtEmail.Size = new System.Drawing.Size(264, 22);
             this.txtEmail.TabIndex = 1;
             // 
             // label3
@@ -143,20 +141,18 @@
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtUsername.Location = new System.Drawing.Point(215, 82);
-            this.txtUsername.Multiline = true;
+            this.txtUsername.Location = new System.Drawing.Point(215, 90);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(264, 31);
+            this.txtUsername.Size = new System.Drawing.Size(264, 22);
             this.txtUsername.TabIndex = 0;
             // 
             // txtNhapLaiMK
             // 
             this.txtNhapLaiMK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtNhapLaiMK.Location = new System.Drawing.Point(215, 278);
-            this.txtNhapLaiMK.Multiline = true;
+            this.txtNhapLaiMK.Location = new System.Drawing.Point(215, 288);
             this.txtNhapLaiMK.Name = "txtNhapLaiMK";
             this.txtNhapLaiMK.PasswordChar = '●';
-            this.txtNhapLaiMK.Size = new System.Drawing.Size(264, 31);
+            this.txtNhapLaiMK.Size = new System.Drawing.Size(264, 22);
             this.txtNhapLaiMK.TabIndex = 4;
             // 
             // label7
@@ -173,10 +169,9 @@
             // txtSDT
             // 
             this.txtSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtSDT.Location = new System.Drawing.Point(215, 183);
-            this.txtSDT.Multiline = true;
+            this.txtSDT.Location = new System.Drawing.Point(215, 191);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(264, 31);
+            this.txtSDT.Size = new System.Drawing.Size(264, 22);
             this.txtSDT.TabIndex = 2;
             // 
             // label6
@@ -206,9 +201,9 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.label9.Location = new System.Drawing.Point(67, 324);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(321, 16);
+            this.label9.Size = new System.Drawing.Size(411, 16);
             this.label9.TabIndex = 14;
-            this.label9.Text = "mật khẩu chứa ít nhất 8 kí tự, 1 số, 1 chữ thường và hoa";
+            this.label9.Text = "mật khẩu chứa ít nhất 8 kí tự, 1 số, 1 kí tự đặc biệt, 1 chữ thường và hoa";
             // 
             // frmDangKi
             // 

@@ -55,15 +55,7 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnStripDangXuat = new System.Windows.Forms.ToolStripMenuItem();
-            this.hóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hóaĐơnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnStripQLLoai = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbbLocTheoGia = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -71,14 +63,22 @@
             this.cbbLocTheoLoai = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnStripDangXuat = new System.Windows.Forms.ToolStripMenuItem();
+            this.hóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hóaĐơnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnStripQLLoai = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSanPham)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -194,11 +194,10 @@
             // txtMa
             // 
             this.txtMa.Location = new System.Drawing.Point(159, 30);
-            this.txtMa.Multiline = true;
             this.txtMa.Name = "txtMa";
             this.txtMa.ReadOnly = true;
-            this.txtMa.Size = new System.Drawing.Size(213, 29);
-            this.txtMa.TabIndex = 31;
+            this.txtMa.Size = new System.Drawing.Size(213, 22);
+            this.txtMa.TabIndex = 0;
             // 
             // label6
             // 
@@ -207,7 +206,7 @@
             this.label6.Location = new System.Drawing.Point(23, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 22);
-            this.label6.TabIndex = 30;
+            this.label6.TabIndex = 6;
             this.label6.Text = "Mã đồ uống";
             // 
             // btnOpenfile
@@ -215,18 +214,17 @@
             this.btnOpenfile.Location = new System.Drawing.Point(319, 298);
             this.btnOpenfile.Name = "btnOpenfile";
             this.btnOpenfile.Size = new System.Drawing.Size(53, 23);
-            this.btnOpenfile.TabIndex = 29;
+            this.btnOpenfile.TabIndex = 5;
             this.btnOpenfile.Text = "open";
             this.btnOpenfile.UseVisualStyleBackColor = true;
             // 
             // txtAnh
             // 
             this.txtAnh.Location = new System.Drawing.Point(159, 259);
-            this.txtAnh.Multiline = true;
             this.txtAnh.Name = "txtAnh";
             this.txtAnh.ReadOnly = true;
-            this.txtAnh.Size = new System.Drawing.Size(213, 33);
-            this.txtAnh.TabIndex = 28;
+            this.txtAnh.Size = new System.Drawing.Size(213, 22);
+            this.txtAnh.TabIndex = 4;
             // 
             // cbbLoai
             // 
@@ -234,31 +232,29 @@
             this.cbbLoai.Location = new System.Drawing.Point(159, 85);
             this.cbbLoai.Name = "cbbLoai";
             this.cbbLoai.Size = new System.Drawing.Size(213, 24);
-            this.cbbLoai.TabIndex = 27;
+            this.cbbLoai.TabIndex = 1;
             // 
             // rtxtMoTa
             // 
             this.rtxtMoTa.Location = new System.Drawing.Point(159, 327);
             this.rtxtMoTa.Name = "rtxtMoTa";
             this.rtxtMoTa.Size = new System.Drawing.Size(213, 58);
-            this.rtxtMoTa.TabIndex = 26;
+            this.rtxtMoTa.TabIndex = 6;
             this.rtxtMoTa.Text = "";
             // 
             // txtTen
             // 
             this.txtTen.Location = new System.Drawing.Point(159, 141);
-            this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(213, 29);
-            this.txtTen.TabIndex = 25;
+            this.txtTen.Size = new System.Drawing.Size(213, 22);
+            this.txtTen.TabIndex = 2;
             // 
             // txtGiaBan
             // 
             this.txtGiaBan.Location = new System.Drawing.Point(159, 201);
-            this.txtGiaBan.Multiline = true;
             this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(213, 29);
-            this.txtGiaBan.TabIndex = 24;
+            this.txtGiaBan.Size = new System.Drawing.Size(213, 22);
+            this.txtGiaBan.TabIndex = 3;
             // 
             // label5
             // 
@@ -317,7 +313,7 @@
             this.btnXoa.Location = new System.Drawing.Point(305, 430);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(105, 48);
-            this.btnXoa.TabIndex = 16;
+            this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             // 
@@ -328,7 +324,7 @@
             this.btnThem.Location = new System.Drawing.Point(37, 430);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(103, 48);
-            this.btnThem.TabIndex = 12;
+            this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -340,7 +336,7 @@
             this.btnSua.Location = new System.Drawing.Point(170, 430);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(105, 48);
-            this.btnSua.TabIndex = 11;
+            this.btnSua.TabIndex = 2;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             // 
@@ -351,16 +347,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(644, 76);
             this.panel3.TabIndex = 5;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Forms.Properties.Resources.coffee_cup_coffee_beans_wooden_table_929186_18;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(641, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -376,6 +362,82 @@
             this.menuStrip1.Size = new System.Drawing.Size(1100, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cbbLocTheoGia);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.cbbLocTheoLoai);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txtTimKiem);
+            this.panel2.Location = new System.Drawing.Point(662, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(426, 145);
+            this.panel2.TabIndex = 4;
+            // 
+            // cbbLocTheoGia
+            // 
+            this.cbbLocTheoGia.FormattingEnabled = true;
+            this.cbbLocTheoGia.Location = new System.Drawing.Point(158, 95);
+            this.cbbLocTheoGia.Name = "cbbLocTheoGia";
+            this.cbbLocTheoGia.Size = new System.Drawing.Size(213, 24);
+            this.cbbLocTheoGia.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(9, 95);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 22);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Lọc Theo Giá";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(9, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 22);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Lọc Theo Loại";
+            // 
+            // cbbLocTheoLoai
+            // 
+            this.cbbLocTheoLoai.FormattingEnabled = true;
+            this.cbbLocTheoLoai.Location = new System.Drawing.Point(158, 52);
+            this.cbbLocTheoLoai.Name = "cbbLocTheoLoai";
+            this.cbbLocTheoLoai.Size = new System.Drawing.Size(213, 24);
+            this.cbbLocTheoLoai.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(10, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 22);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Tìm Kiếm";
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(158, 8);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(213, 22);
+            this.txtTimKiem.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Forms.Properties.Resources.coffee_cup_coffee_beans_wooden_table_929186_18;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(641, 76);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // hệThốngToolStripMenuItem
             // 
@@ -425,77 +487,11 @@
             // 
             // mnStripQLLoai
             // 
+            this.mnStripQLLoai.Image = global::Forms.Properties.Resources.loai;
             this.mnStripQLLoai.Name = "mnStripQLLoai";
-            this.mnStripQLLoai.Size = new System.Drawing.Size(107, 24);
+            this.mnStripQLLoai.Size = new System.Drawing.Size(127, 24);
             this.mnStripQLLoai.Text = "Quản Lý Loại";
             this.mnStripQLLoai.Click += new System.EventHandler(this.mnStripQLLoai_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cbbLocTheoGia);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.cbbLocTheoLoai);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtTimKiem);
-            this.panel2.Location = new System.Drawing.Point(662, 31);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(426, 145);
-            this.panel2.TabIndex = 4;
-            // 
-            // cbbLocTheoGia
-            // 
-            this.cbbLocTheoGia.FormattingEnabled = true;
-            this.cbbLocTheoGia.Location = new System.Drawing.Point(158, 95);
-            this.cbbLocTheoGia.Name = "cbbLocTheoGia";
-            this.cbbLocTheoGia.Size = new System.Drawing.Size(213, 24);
-            this.cbbLocTheoGia.TabIndex = 23;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(9, 95);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 22);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Lọc Theo Giá";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 52);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 22);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Lọc Theo Loại";
-            // 
-            // cbbLocTheoLoai
-            // 
-            this.cbbLocTheoLoai.FormattingEnabled = true;
-            this.cbbLocTheoLoai.Location = new System.Drawing.Point(158, 52);
-            this.cbbLocTheoLoai.Name = "cbbLocTheoLoai";
-            this.cbbLocTheoLoai.Size = new System.Drawing.Size(213, 24);
-            this.cbbLocTheoLoai.TabIndex = 20;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 22);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Tìm Kiếm";
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Location = new System.Drawing.Point(158, 8);
-            this.txtTimKiem.Multiline = true;
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(213, 22);
-            this.txtTimKiem.TabIndex = 0;
             // 
             // frmQuanLy
             // 
@@ -520,11 +516,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
