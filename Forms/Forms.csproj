@@ -168,5 +168,8 @@
   <ItemGroup>
     <None Include="Resources\usermanagement.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loai.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
