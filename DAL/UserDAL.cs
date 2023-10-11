@@ -39,5 +39,29 @@ namespace DAL
             User user = context.Users.FirstOrDefault(u => u.SDT == phone);
             return user;
         }
+
+        public List<User> GetAllUsers()
+        {
+            return context.Users.ToList();
+        }
+
+        public void UpdateUser(User user)
+        {
+            User UpdateUser = context.Users.FirstOrDefault(u => u.UserId == user.UserId);
+            if(UpdateUser != null)
+            {
+                UpdateUser.Username = user.Username;
+                UpdateUser.Password = user.Password;
+                UpdateUser.SDT = user.SDT;
+                UpdateUser.Email = user.Email;
+                UpdateUser.RoleId = user.RoleId;
+                context.SaveChanges();
+            }
+        }
+
+        public User GetUserByID(int ID)
+        {
+            return context.Users.FirstOrDefault(u => u.UserId==ID);
+        }
     }
 }

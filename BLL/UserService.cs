@@ -9,6 +9,34 @@ namespace BLL
 {
     public class UserService : AbstractService
     {
+        public List<User> GetAllUsers()
+        {
+            return UserDAL.GetAllUsers();
+        }
+
+        public List<User> GetUsersByRoleID(string RoleID)
+        {
+            return UserDAL.GetAllUsers().Where(u => u.RoleId == RoleID).ToList();
+        }
+
+        public void UpdateUserRole(int UserID, string RoleID)
+        {
+            Role role = RoleDAL.GetRoleByID(RoleID);
+            if(role == null)
+            {
+                throw new Exception("Không tồn tại role này");
+            }
+
+            User user = UserDAL.GetUserByID(UserID);
+            if(user == null)
+            {
+                throw new Exception("Không tồn tại người dùng này");
+            }
+
+            user.RoleId = RoleID;
+            UserDAL.UpdateUser(user);
+        }
+
         public void Register(User user)
         {
              if(user.Username.Trim().Length == 0)
