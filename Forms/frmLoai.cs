@@ -77,10 +77,14 @@ namespace Forms
         {
             try
             {
-                int CategoryId = int.Parse(txtMaLoai.Text);
-                productCategoryService.DeleteCategory(CategoryId);
-                List<ProductCategory> categories = productCategoryService.GetAllCategories();
-                FillDGV(categories);
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    int CategoryId = int.Parse(txtMaLoai.Text);
+                    productCategoryService.DeleteCategory(CategoryId);
+                    List<ProductCategory> categories = productCategoryService.GetAllCategories();
+                    FillDGV(categories);
+                }
             }
             catch (Exception ex)
             {

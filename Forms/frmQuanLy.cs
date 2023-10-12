@@ -17,6 +17,8 @@ namespace Forms
         private bool IsLogout = false;
         private ProductCategoryService productCategoryService = new ProductCategoryService();
         private ProductService productService = new ProductService();
+        public User user = null;
+
         public frmQuanLy()
         {
             InitializeComponent();
@@ -42,6 +44,10 @@ namespace Forms
 
         private void frmQuanLy_Load(object sender, EventArgs e)
         {
+            if(user == null)
+            {
+                this.Close();
+            }
             List<ProductCategory> categories = productCategoryService.GetAllCategories();
             List<Product> products = productService.GetAllProducts();
             FillComboBoxLoai(categories);
@@ -101,6 +107,75 @@ namespace Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void menuStripDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            frmDoiMatKhau frmDMK = new frmDoiMatKhau();
+            Hide();
+            frmDMK.ShowDialog();
+            Show();
+        }
+
+      
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                int productId = int.Parse(txtMa.Text);
+                int productCategory = int.Parse(cbbLoai.SelectedValue.ToString());
+                string productName = txtTen.Text;
+                double sellPrice = double.Parse(txtGiaBan.Text);
+                string Description = rtxtMoTa.Text;
+                Product pro = new Product();
+                pro.ProductId = productId;
+                pro.CategoryId = productCategory; 
+                pro.ProductName = productName;
+                pro.SellPrice = sellPrice;
+                pro.Image = txtAnh.Text == "" ? null : txtAnh.Text;
+                pro.Description = Description;
+                productService.UpdateProduct(pro);
+                frmQuanLy_Load(sender, e);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+           
+
+        }
+
+        private void dgvListSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dgvListSanPham.CurrentRow.Index;
+            txtMa.Text = dgvListSanPham.Rows[index].Cells[1].Value.ToString();
+            cbbLoai.Text = dgvListSanPham.Rows[index].Cells[2].Value.ToString();
+            txtTen.Text = dgvListSanPham.Rows[index].Cells[3].Value.ToString();
+            txtGiaBan.Text = dgvListSanPham.Rows[index].Cells[4].Value.ToString();
+            rtxtMoTa.Text = dgvListSanPham.Rows[index].Cells[5].Value.ToString();
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    int ProductId = int.Parse(txtMa.Text);
+                    productService.DeleteProduct(ProductId);
+                    List<Product> pro = productService.GetAllProducts();
+                    FillDGVListProducts(pro);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

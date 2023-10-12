@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoai));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvListLoai = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,7 +152,9 @@
             this.Controls.Add(this.txtMaLoai);
             this.Controls.Add(this.dgvListLoai);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLoai";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lí Loại";
             this.Load += new System.EventHandler(this.frmLoai_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListLoai)).EndInit();
