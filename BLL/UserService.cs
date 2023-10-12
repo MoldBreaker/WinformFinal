@@ -117,5 +117,32 @@ namespace BLL
 
             return getUserByEmail;
         }
+
+        public void ChangePassword(int UserID, string OldPassword, string NewPassword, string CNewPassword)
+        {
+            if(NewPassword != CNewPassword)
+            {
+                throw new Exception("Mật khẩu mới không trùng nhau");
+            }
+            if(!Validator.IsValidPassword(OldPassword))
+            {
+                throw new Exception("Mật khẩu cũ không đúng định dạng");
+            }
+            if (!Validator.IsValidPassword(NewPassword))
+            {
+                throw new Exception("Mật khẩu mới không đúng định dạng");
+            }
+            User user = UserDAL.GetUserByID(UserID);
+            if (user == null)
+            {
+                throw new Exception("Không tìm thấy user này");
+            }
+            if(OldPassword != user.Password)
+            {
+                throw new Exception("Mật khẩu cũ không khớp");
+            }
+            user.Password = NewPassword;
+            UserDAL.UpdateUser(user);
+        }
     }
 }

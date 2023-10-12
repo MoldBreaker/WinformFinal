@@ -99,5 +99,10 @@ namespace Forms
                 btnDangNhap_Click(sender, e);
             }
         }
+
+        private void frmDangNhap_VisibleChanged(object sender, EventArgs e)
+        {
+            Form1_Load(sender, e);
+        }
     }
 }

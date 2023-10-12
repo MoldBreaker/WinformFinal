@@ -147,6 +147,7 @@
             this.Text = "Đăng Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DangNhap_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.VisibleChanged += new System.EventHandler(this.frmDangNhap_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

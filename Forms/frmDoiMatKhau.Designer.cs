@@ -33,9 +33,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMatKhauCu = new System.Windows.Forms.TextBox();
-            this.txt = new System.Windows.Forms.TextBox();
+            this.txtCMatKhauMoi = new System.Windows.Forms.TextBox();
             this.txtMatKhauMoi = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -75,12 +75,12 @@
             this.txtMatKhauCu.Size = new System.Drawing.Size(187, 22);
             this.txtMatKhauCu.TabIndex = 3;
             // 
-            // txt
+            // txtCMatKhauMoi
             // 
-            this.txt.Location = new System.Drawing.Point(211, 164);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(187, 22);
-            this.txt.TabIndex = 4;
+            this.txtCMatKhauMoi.Location = new System.Drawing.Point(211, 164);
+            this.txtCMatKhauMoi.Name = "txtCMatKhauMoi";
+            this.txtCMatKhauMoi.Size = new System.Drawing.Size(187, 22);
+            this.txtCMatKhauMoi.TabIndex = 4;
             // 
             // txtMatKhauMoi
             // 
@@ -89,14 +89,15 @@
             this.txtMatKhauMoi.Size = new System.Drawing.Size(187, 22);
             this.txtMatKhauMoi.TabIndex = 5;
             // 
-            // button1
+            // btnDoiMatKhau
             // 
-            this.button1.Location = new System.Drawing.Point(284, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 34);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Đổi mật khẩu";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(284, 196);
+            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
+            this.btnDoiMatKhau.Size = new System.Drawing.Size(114, 34);
+            this.btnDoiMatKhau.TabIndex = 6;
+            this.btnDoiMatKhau.Text = "Đổi mật khẩu";
+            this.btnDoiMatKhau.UseVisualStyleBackColor = true;
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
             // frmDoiMatKhau
             // 
@@ -104,16 +105,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(447, 242);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.txtMatKhauMoi);
-            this.Controls.Add(this.txt);
+            this.Controls.Add(this.txtCMatKhauMoi);
             this.Controls.Add(this.txtMatKhauCu);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDoiMatKhau";
-            this.Text = "frmDoiMatKhau";
+            this.Text = "Đổi Mật Khẩu";
+            this.Load += new System.EventHandler(this.frmDoiMatKhau_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,8 +127,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMatKhauCu;
-        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.TextBox txtCMatKhauMoi;
         private System.Windows.Forms.TextBox txtMatKhauMoi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDoiMatKhau;
     }
 }
