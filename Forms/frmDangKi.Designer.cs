@@ -211,7 +211,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Forms.Properties.Resources._360_F_116619399_YA611bKNOW35ffK0OiyuaOcjAgXgKBui;
-            this.ClientSize = new System.Drawing.Size(528, 413);
+            this.ClientSize = new System.Drawing.Size(536, 402);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSDT);
@@ -231,7 +231,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDangKi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DangKi";
+            this.Text = "Đăng Ký";
             this.Load += new System.EventHandler(this.frmDangKi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

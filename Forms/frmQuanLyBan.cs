@@ -41,6 +41,7 @@ namespace Forms
                 button.UseVisualStyleBackColor = true;
                 button.Click += new System.EventHandler(this.OnClick);
                 button.Tag = table;
+                button.BackColor = System.Drawing.Color.FromArgb(255, 224, 192);
 
                 flpBan.Controls.Add(button);
             }
@@ -120,5 +121,7 @@ namespace Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }

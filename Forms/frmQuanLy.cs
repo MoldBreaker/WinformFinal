@@ -47,6 +47,7 @@ namespace Forms
         {
             if(user == null)
             {
+                MessageBox.Show("Vui lòng đăng nhập");
                 this.Close();
             }
             List<ProductCategory> categories = productCategoryService.GetAllCategories();
@@ -128,6 +129,7 @@ namespace Forms
         {
             frmDoiMatKhau frmDMK = new frmDoiMatKhau();
             Hide();
+            frmDMK.user = user;
             frmDMK.ShowDialog();
             Show();
         }
@@ -237,6 +239,13 @@ namespace Forms
             this.Hide();
             frmQLBan.ShowDialog();
             this.Show();
+        }
+
+        private void xemThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmThongTinCaNhan frmThongTinCaNhan = new frmThongTinCaNhan();
+            frmThongTinCaNhan.user = user;
+            frmThongTinCaNhan.ShowDialog();
         }
     }
 }
