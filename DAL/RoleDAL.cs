@@ -13,5 +13,10 @@ namespace DAL
         {
             return context.Roles.ToList();
         }
+
+        public Role GetRoleByID(string ID)
+        {
+            return context.Roles.FirstOrDefault(r => r.RoleId == ID);
+        }
     }
 }

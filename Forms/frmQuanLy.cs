@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Forms
 {
@@ -50,17 +51,30 @@ namespace Forms
             }
             List<ProductCategory> categories = productCategoryService.GetAllCategories();
             List<Product> products = productService.GetAllProducts();
-            FillComboBoxLoai(categories);
+            FillComboBoxLoai();
             FillDGVListProducts(products);
+
+            Dictionary<double, string> LocTheoGia = new Dictionary<double, string>();
+            LocTheoGia.Add(20000, "Dưới 20K");
+            LocTheoGia.Add(50000, "Dưới 50K");
+            LocTheoGia.Add(100000, "Dưới 100k");
+            LocTheoGia.Add(100001, "Trên 100k");
+            cbbLocTheoGia.DataSource = new BindingSource(LocTheoGia, null);
+            cbbLocTheoGia.DisplayMember = "Value";
+            cbbLocTheoGia.ValueMember = "Key";
         }
 
-        public void FillComboBoxLoai(List<ProductCategory> categories)
+
+        public void FillComboBoxLoai()
         {
-            cbbLoai.DataSource = categories;
+            List<ProductCategory> categoriesCbbLoai = productCategoryService.GetAllCategories();
+            cbbLoai.DataSource = categoriesCbbLoai;
             cbbLoai.DisplayMember = "CategoryName";
             cbbLoai.ValueMember = "CategoryId";
 
-            cbbLocTheoLoai.DataSource = categories;
+
+            List<ProductCategory> categoriesCbbLocTheoLoai = productCategoryService.GetAllCategories();
+            cbbLocTheoLoai.DataSource = categoriesCbbLocTheoLoai;
             cbbLocTheoLoai.DisplayMember = "CategoryName";
             cbbLocTheoLoai.ValueMember = "CategoryId";
         }
@@ -82,7 +96,7 @@ namespace Forms
                 dgvListSanPham.Rows[index].Cells[2].Value = pc.CategoryName;
                 dgvListSanPham.Rows[index].Cells[3].Value = products[i].ProductName;
                 dgvListSanPham.Rows[index].Cells[4].Value = products[i].SellPrice;
-                dgvListSanPham.Rows[index].Cells[5].Value = products[i].Description;
+                dgvListSanPham.Rows[index].Cells[5].Value = products[i].Description.ToString();
 
             }
         }
@@ -171,12 +185,58 @@ namespace Forms
                     List<Product> pro = productService.GetAllProducts();
                     FillDGVListProducts(pro);
                 }
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+            
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Name = txtTimKiem.Text;
+                int CategoryId = int.Parse(cbbLocTheoLoai.SelectedValue.ToString());
+                string cbbLocGiaDisplay = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Value;
+                double cbbLocGiaValue = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Key;
+
+                List<Product> products = new List<Product>();
+                if (cbbLocGiaDisplay.Contains("Dưới"))
+                {
+                    products = productService.GetAllProducts().Where(p => p.ProductName.IndexOf(Name, 0, StringComparison.OrdinalIgnoreCase) != -1 && p.CategoryId == CategoryId && p.SellPrice < cbbLocGiaValue).ToList();
+                } else
+                {
+                    products = productService.GetAllProducts().Where(p => p.ProductName.IndexOf(Name, 0, StringComparison.OrdinalIgnoreCase) != -1 && p.ProductName.Contains(Name) && p.CategoryId == CategoryId && p.SellPrice >= cbbLocGiaValue).ToList();
+                }
+                FillDGVListProducts(products);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnMacDinh_Click(object sender, EventArgs e)
+        {
+            frmQuanLy_Load(sender, e);
+        }
+
+        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQuanLyNguoiDung frmQuanLyNguoiDung = new frmQuanLyNguoiDung();
+            this.Hide();
+            frmQuanLyNguoiDung.ShowDialog();
+            this.Show();
+        }
+
+        private void mnStripQuanLyBan_Click(object sender, EventArgs e)
+        {
+            frmQuanLyBan frmQLBan = new frmQuanLyBan();
+            this.Hide();
+            frmQLBan.ShowDialog();
+            this.Show();
         }
     }
 }

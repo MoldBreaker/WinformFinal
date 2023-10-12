@@ -67,7 +67,10 @@
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStripQLLoai = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnStripQuanLyBan = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMacDinh = new System.Windows.Forms.Button();
+            this.btnLoc = new System.Windows.Forms.Button();
             this.cbbLocTheoGia = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -372,7 +375,8 @@
             this.hóaĐơnToolStripMenuItem,
             this.thốngKêToolStripMenuItem,
             this.hóaĐơnToolStripMenuItem1,
-            this.mnStripQLLoai});
+            this.mnStripQLLoai,
+            this.mnStripQuanLyBan});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1100, 28);
@@ -427,6 +431,7 @@
             this.hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
             this.hóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
             this.hóaĐơnToolStripMenuItem.Text = "Quản Lí Người Dùng";
+            this.hóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem_Click);
             // 
             // thốngKêToolStripMenuItem
             // 
@@ -450,8 +455,17 @@
             this.mnStripQLLoai.Text = "Quản Lý Loại";
             this.mnStripQLLoai.Click += new System.EventHandler(this.mnStripQLLoai_Click);
             // 
+            // mnStripQuanLyBan
+            // 
+            this.mnStripQuanLyBan.Name = "mnStripQuanLyBan";
+            this.mnStripQuanLyBan.Size = new System.Drawing.Size(104, 24);
+            this.mnStripQuanLyBan.Text = "Quản Lý Bàn";
+            this.mnStripQuanLyBan.Click += new System.EventHandler(this.mnStripQuanLyBan_Click);
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnMacDinh);
+            this.panel2.Controls.Add(this.btnLoc);
             this.panel2.Controls.Add(this.cbbLocTheoGia);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
@@ -463,10 +477,30 @@
             this.panel2.Size = new System.Drawing.Size(426, 145);
             this.panel2.TabIndex = 4;
             // 
+            // btnMacDinh
+            // 
+            this.btnMacDinh.Location = new System.Drawing.Point(158, 102);
+            this.btnMacDinh.Name = "btnMacDinh";
+            this.btnMacDinh.Size = new System.Drawing.Size(98, 39);
+            this.btnMacDinh.TabIndex = 24;
+            this.btnMacDinh.Text = "Mặc định";
+            this.btnMacDinh.UseVisualStyleBackColor = true;
+            this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinh_Click);
+            // 
+            // btnLoc
+            // 
+            this.btnLoc.Location = new System.Drawing.Point(273, 102);
+            this.btnLoc.Name = "btnLoc";
+            this.btnLoc.Size = new System.Drawing.Size(98, 39);
+            this.btnLoc.TabIndex = 23;
+            this.btnLoc.Text = "Lọc";
+            this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
+            // 
             // cbbLocTheoGia
             // 
             this.cbbLocTheoGia.FormattingEnabled = true;
-            this.cbbLocTheoGia.Location = new System.Drawing.Point(158, 95);
+            this.cbbLocTheoGia.Location = new System.Drawing.Point(159, 72);
             this.cbbLocTheoGia.Name = "cbbLocTheoGia";
             this.cbbLocTheoGia.Size = new System.Drawing.Size(213, 24);
             this.cbbLocTheoGia.TabIndex = 2;
@@ -475,7 +509,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(9, 95);
+            this.label9.Location = new System.Drawing.Point(10, 72);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(119, 22);
             this.label9.TabIndex = 22;
@@ -485,7 +519,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 52);
+            this.label8.Location = new System.Drawing.Point(9, 39);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 22);
             this.label8.TabIndex = 21;
@@ -494,7 +528,7 @@
             // cbbLocTheoLoai
             // 
             this.cbbLocTheoLoai.FormattingEnabled = true;
-            this.cbbLocTheoLoai.Location = new System.Drawing.Point(158, 52);
+            this.cbbLocTheoLoai.Location = new System.Drawing.Point(158, 39);
             this.cbbLocTheoLoai.Name = "cbbLocTheoLoai";
             this.cbbLocTheoLoai.Size = new System.Drawing.Size(213, 24);
             this.cbbLocTheoLoai.TabIndex = 1;
@@ -597,5 +631,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnStripQLLoai;
         private System.Windows.Forms.ToolStripMenuItem xemThôngTinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuStripDoiMatKhau;
+        private System.Windows.Forms.Button btnLoc;
+        private System.Windows.Forms.Button btnMacDinh;
+        private System.Windows.Forms.ToolStripMenuItem mnStripQuanLyBan;
     }
 }

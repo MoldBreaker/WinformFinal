@@ -75,21 +75,24 @@ namespace Forms
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            try
+            if(MessageBox.Show("Bạn có chắc chắn muốn xoá thể loại này không? Lưu ý các sản phẩm hiện có thuộc thể loại này sẽ bị xoá?", "Cảnh Báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
+                try
                 {
                     int CategoryId = int.Parse(txtMaLoai.Text);
                     productCategoryService.DeleteCategory(CategoryId);
                     List<ProductCategory> categories = productCategoryService.GetAllCategories();
                     FillDGV(categories);
                 }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+
+                    }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
         private void dgvListLoai_CellClick(object sender, DataGridViewCellEventArgs e)
