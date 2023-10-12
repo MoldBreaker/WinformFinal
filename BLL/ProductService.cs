@@ -35,5 +35,46 @@ namespace BLL
             ProductDAL.AddProduct(product);
 
         }
+
+        public void UpdateProduct(Product product) 
+        {
+            if(product.ProductName.Trim().Length == 0)
+            {
+                throw new Exception("Tên không được để trống");
+            } 
+            if(product.SellPrice == 0)
+            {
+                throw new Exception("Giá không được để trống");
+            }
+            if(product.Description.Trim().Length == 0)
+            {
+                throw new Exception("Mô tả không được để trống");
+            }
+
+            Product pr = ProductDAL.GetProductById(product.ProductId);
+            if(pr == null)
+            {
+                throw new Exception("Không tồn tại sản phẩm này");
+            }
+            ProductDAL.UpdateProduct(product);
+        }
+
+        public void DeleteProduct(int id)
+        {
+            Product pr = ProductDAL.GetProductById(id);
+            if (pr == null)
+            {
+                throw new Exception("Không tồn tại loại sản phẩm có mã này");
+            }
+            List<Product> products = ProductDAL.GetAllProducts();
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].ProductId == id)
+                {
+                    ProductDAL.DeleteProduct(products[i].ProductId);
+                }
+            }
+            ProductDAL.DeleteProduct(pr.ProductId);
+        }
     }
 }

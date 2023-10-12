@@ -13,5 +13,6 @@ namespace BLL
         protected UserDAL UserDAL = new UserDAL();
         protected ProductCategoryDAL ProductCategoryDAL = new ProductCategoryDAL();
         protected ProductDAL ProductDAL = new ProductDAL();
+        protected TableDAL TableDAL = new TableDAL();
     }
 }

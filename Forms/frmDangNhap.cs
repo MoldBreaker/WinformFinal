@@ -81,6 +81,7 @@ namespace Forms
                     case "QL":
                         frmQuanLy formQuanLy = new frmQuanLy();
                         this.Hide();
+                        formQuanLy.user = user;
                         formQuanLy.ShowDialog();
                         this.Show();
                         break;

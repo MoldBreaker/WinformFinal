@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLy));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvListSanPham = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,11 +60,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripDoiMatKhau = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStripDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStripQLLoai = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnStripQuanLyBan = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMacDinh = new System.Windows.Forms.Button();
             this.btnLoc = new System.Windows.Forms.Button();
@@ -111,6 +115,7 @@
             this.dgvListSanPham.RowTemplate.Height = 24;
             this.dgvListSanPham.Size = new System.Drawing.Size(641, 524);
             this.dgvListSanPham.TabIndex = 0;
+            this.dgvListSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListSanPham_CellClick);
             // 
             // Column1
             // 
@@ -318,6 +323,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -341,6 +347,7 @@
             this.btnSua.TabIndex = 2;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // panel3
             // 
@@ -368,7 +375,8 @@
             this.hóaĐơnToolStripMenuItem,
             this.thốngKêToolStripMenuItem,
             this.hóaĐơnToolStripMenuItem1,
-            this.mnStripQLLoai});
+            this.mnStripQLLoai,
+            this.mnStripQuanLyBan});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1100, 28);
@@ -387,10 +395,27 @@
             // 
             // menuItemTaiKhoan
             // 
+            this.menuItemTaiKhoan.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xemThôngTinToolStripMenuItem,
+            this.menuStripDoiMatKhau});
             this.menuItemTaiKhoan.Image = global::Forms.Properties.Resources.user;
             this.menuItemTaiKhoan.Name = "menuItemTaiKhoan";
             this.menuItemTaiKhoan.Size = new System.Drawing.Size(226, 26);
             this.menuItemTaiKhoan.Text = "Thông Tin Tài Khoản";
+            // 
+            // xemThôngTinToolStripMenuItem
+            // 
+            this.xemThôngTinToolStripMenuItem.Name = "xemThôngTinToolStripMenuItem";
+            this.xemThôngTinToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.xemThôngTinToolStripMenuItem.Text = "Xem thông tin";
+            // 
+            // menuStripDoiMatKhau
+            // 
+            this.menuStripDoiMatKhau.Image = global::Forms.Properties.Resources.changepass;
+            this.menuStripDoiMatKhau.Name = "menuStripDoiMatKhau";
+            this.menuStripDoiMatKhau.Size = new System.Drawing.Size(186, 26);
+            this.menuStripDoiMatKhau.Text = "Đổi mật khẩu";
+            this.menuStripDoiMatKhau.Click += new System.EventHandler(this.menuStripDoiMatKhau_Click);
             // 
             // mnStripDangXuat
             // 
@@ -429,6 +454,13 @@
             this.mnStripQLLoai.Size = new System.Drawing.Size(127, 24);
             this.mnStripQLLoai.Text = "Quản Lý Loại";
             this.mnStripQLLoai.Click += new System.EventHandler(this.mnStripQLLoai_Click);
+            // 
+            // mnStripQuanLyBan
+            // 
+            this.mnStripQuanLyBan.Name = "mnStripQuanLyBan";
+            this.mnStripQuanLyBan.Size = new System.Drawing.Size(104, 24);
+            this.mnStripQuanLyBan.Text = "Quản Lý Bàn";
+            this.mnStripQuanLyBan.Click += new System.EventHandler(this.mnStripQuanLyBan_Click);
             // 
             // panel2
             // 
@@ -530,8 +562,10 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmQuanLy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.frmQuanLy_Load);
             this.VisibleChanged += new System.EventHandler(this.frmQuanLy_VisibleChanged);
@@ -595,7 +629,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem mnStripQLLoai;
+        private System.Windows.Forms.ToolStripMenuItem xemThôngTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuStripDoiMatKhau;
         private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Button btnMacDinh;
+        private System.Windows.Forms.ToolStripMenuItem mnStripQuanLyBan;
     }
 }

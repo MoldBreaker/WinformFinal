@@ -83,6 +83,16 @@ namespace Forms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap changepass {
+            get {
+                object obj = ResourceManager.GetObject("changepass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coffee_cup_coffee_beans_wooden_table_929186_18 {
             get {
                 object obj = ResourceManager.GetObject("coffee-cup-coffee-beans-wooden-table_929186-18", resourceCulture);

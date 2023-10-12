@@ -37,15 +37,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbbVaiTro = new System.Windows.Forms.ComboBox();
             this.dgvNguoiDung = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtMaNguoiDung = new System.Windows.Forms.TextBox();
-            this.btnXemHoaDon = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMaNguoiDung = new System.Windows.Forms.TextBox();
+            this.btnXemHoaDon = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.rdHienThiToanBo = new System.Windows.Forms.RadioButton();
             this.rdChiHienNV = new System.Windows.Forms.RadioButton();
@@ -149,32 +149,6 @@
             this.dgvNguoiDung.TabIndex = 8;
             this.dgvNguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguoiDung_CellClick);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Mã người dùng";
-            // 
-            // txtMaNguoiDung
-            // 
-            this.txtMaNguoiDung.Location = new System.Drawing.Point(152, 7);
-            this.txtMaNguoiDung.Name = "txtMaNguoiDung";
-            this.txtMaNguoiDung.ReadOnly = true;
-            this.txtMaNguoiDung.Size = new System.Drawing.Size(185, 22);
-            this.txtMaNguoiDung.TabIndex = 10;
-            // 
-            // btnXemHoaDon
-            // 
-            this.btnXemHoaDon.Location = new System.Drawing.Point(460, 7);
-            this.btnXemHoaDon.Name = "btnXemHoaDon";
-            this.btnXemHoaDon.Size = new System.Drawing.Size(102, 50);
-            this.btnXemHoaDon.TabIndex = 12;
-            this.btnXemHoaDon.Text = "Xem hoá đơn đã mua";
-            this.btnXemHoaDon.UseVisualStyleBackColor = true;
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Mã Người Dùng";
@@ -223,6 +197,32 @@
             this.Column6.ReadOnly = true;
             this.Column6.Visible = false;
             this.Column6.Width = 125;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 16);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Mã người dùng";
+            // 
+            // txtMaNguoiDung
+            // 
+            this.txtMaNguoiDung.Location = new System.Drawing.Point(152, 7);
+            this.txtMaNguoiDung.Name = "txtMaNguoiDung";
+            this.txtMaNguoiDung.ReadOnly = true;
+            this.txtMaNguoiDung.Size = new System.Drawing.Size(185, 22);
+            this.txtMaNguoiDung.TabIndex = 10;
+            // 
+            // btnXemHoaDon
+            // 
+            this.btnXemHoaDon.Location = new System.Drawing.Point(460, 7);
+            this.btnXemHoaDon.Name = "btnXemHoaDon";
+            this.btnXemHoaDon.Size = new System.Drawing.Size(102, 50);
+            this.btnXemHoaDon.TabIndex = 12;
+            this.btnXemHoaDon.Text = "Xem hoá đơn đã mua";
+            this.btnXemHoaDon.UseVisualStyleBackColor = true;
             // 
             // btnCapNhat
             // 
@@ -341,6 +341,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(748, 557);
             this.Controls.Add(this.txtTongKH);
             this.Controls.Add(this.txtTongNV);
