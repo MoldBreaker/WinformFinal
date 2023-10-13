@@ -76,5 +76,15 @@ namespace BLL
             }
             ProductDAL.DeleteProduct(pr.ProductId);
         }
+
+        public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            ProductCategory category = ProductCategoryDAL.GetCategoryById(categoryId);
+            if(category == null)
+            {
+                throw new Exception("Không thìm thấy loại này");
+            }
+            return ProductDAL.GetAllProducts().Where(p => p.CategoryId == category.CategoryId).ToList();
+        }
     }
 }

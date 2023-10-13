@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -167,12 +169,13 @@ namespace Forms
         private void dgvListSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dgvListSanPham.CurrentRow.Index;
+            Product product = productService.GetProductById(int.Parse(dgvListSanPham.Rows[index].Cells[1].Value.ToString()));
             txtMa.Text = dgvListSanPham.Rows[index].Cells[1].Value.ToString();
             cbbLoai.Text = dgvListSanPham.Rows[index].Cells[2].Value.ToString();
             txtTen.Text = dgvListSanPham.Rows[index].Cells[3].Value.ToString();
             txtGiaBan.Text = dgvListSanPham.Rows[index].Cells[4].Value.ToString();
             rtxtMoTa.Text = dgvListSanPham.Rows[index].Cells[5].Value.ToString();
-
+            txtAnh.Text = product.Image;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -246,6 +249,29 @@ namespace Forms
             frmThongTinCaNhan frmThongTinCaNhan = new frmThongTinCaNhan();
             frmThongTinCaNhan.user = user;
             frmThongTinCaNhan.ShowDialog();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            List<Product> products = new List<Product>();
+            products = productService.GetAllProducts().Where(p => p.ProductName.ToUpper().Contains(txtTimKiem.Text.ToUpper())).ToList();
+            FillDGVListProducts(products);
+        }
+
+        private void btnOpenfile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Images|*.png;*.jpg;*.ico";
+                if(openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtAnh.Text = openFileDialog.FileName;
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

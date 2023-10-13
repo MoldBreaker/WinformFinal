@@ -55,7 +55,6 @@ namespace Forms
             {
                 string email = txtEmail.Text.Trim();
                 string password = txtMatKhau.Text.Trim();
-
                 User userLogin = new User();
                 userLogin.Email = email;
                 userLogin.Password = password;  
@@ -69,6 +68,7 @@ namespace Forms
                     case "KH":
                         frmKhachHang formKhachHang = new frmKhachHang();
                         this.Hide();
+                        formKhachHang.user = user;
                         formKhachHang.ShowDialog();
                         this.Show();
                         break;

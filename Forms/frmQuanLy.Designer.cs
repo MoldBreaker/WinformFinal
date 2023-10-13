@@ -224,6 +224,7 @@
             this.btnOpenfile.TabIndex = 5;
             this.btnOpenfile.Text = "open";
             this.btnOpenfile.UseVisualStyleBackColor = true;
+            this.btnOpenfile.Click += new System.EventHandler(this.btnOpenfile_Click);
             // 
             // txtAnh
             // 
@@ -460,6 +461,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(213, 22);
             this.txtTimKiem.TabIndex = 0;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // pictureBox1
             // 
@@ -495,7 +497,7 @@
             // 
             this.xemThôngTinToolStripMenuItem.Image = global::Forms.Properties.Resources.profile;
             this.xemThôngTinToolStripMenuItem.Name = "xemThôngTinToolStripMenuItem";
-            this.xemThôngTinToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xemThôngTinToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.xemThôngTinToolStripMenuItem.Text = "Xem thông tin";
             this.xemThôngTinToolStripMenuItem.Click += new System.EventHandler(this.xemThôngTinToolStripMenuItem_Click);
             // 
@@ -503,7 +505,7 @@
             // 
             this.menuStripDoiMatKhau.Image = global::Forms.Properties.Resources.changepass;
             this.menuStripDoiMatKhau.Name = "menuStripDoiMatKhau";
-            this.menuStripDoiMatKhau.Size = new System.Drawing.Size(224, 26);
+            this.menuStripDoiMatKhau.Size = new System.Drawing.Size(186, 26);
             this.menuStripDoiMatKhau.Text = "Đổi mật khẩu";
             this.menuStripDoiMatKhau.Click += new System.EventHandler(this.menuStripDoiMatKhau_Click);
             // 
