@@ -385,8 +385,15 @@ namespace Forms
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void lịchSửĐơnĐặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLichSuDonHang frmLichSuDonHang = new FrmLichSuDonHang();
+            frmLichSuDonHang.user = user;
+            frmLichSuDonHang.ShowDialog();
         }
     }
 }
