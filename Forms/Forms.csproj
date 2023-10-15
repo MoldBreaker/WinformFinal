@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietHoaDon.Designer.cs">
+      <DependentUpon>frmChiTietHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangKi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     <Compile Include="frmKhachHang.Designer.cs">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLichSuDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLichSuDonHang.Designer.cs">
+      <DependentUpon>FrmLichSuDonHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     </Compile>
     <Compile Include="frmQuanLyBan.Designer.cs">
       <DependentUpon>frmQuanLyBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyHoaDon.Designer.cs">
+      <DependentUpon>frmQuanLyHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuanLyNguoiDung.cs">
       <SubType>Form</SubType>
@@ -127,6 +145,9 @@
     <Compile Include="frmQuanLy.Designer.cs">
       <DependentUpon>frmQuanLy.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmChiTietHoaDon.resx">
+      <DependentUpon>frmChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangKi.resx">
       <DependentUpon>frmDangKi.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +160,9 @@
     <EmbeddedResource Include="frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLichSuDonHang.resx">
+      <DependentUpon>FrmLichSuDonHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoai.resx">
       <DependentUpon>frmLoai.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyBan.resx">
       <DependentUpon>frmQuanLyBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyHoaDon.resx">
+      <DependentUpon>frmQuanLyHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyNguoiDung.resx">
       <DependentUpon>frmQuanLyNguoiDung.cs</DependentUpon>

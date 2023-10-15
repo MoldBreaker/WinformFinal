@@ -41,7 +41,7 @@ namespace Forms
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            if(user == null)
+            if (user == null)
             {
                 MessageBox.Show("Vui lòng đăng nhập trước");
                 this.Close();
@@ -87,7 +87,7 @@ namespace Forms
         private void FillFLPTables(List<Table> tables)
         {
             flpBan.Controls.Clear();
-            for (int i=0; i < tables.Count; i++){
+            for (int i = 0; i < tables.Count; i++) {
                 Button btn = new System.Windows.Forms.Button();
                 btn.Location = new System.Drawing.Point(3, 3);
                 btn.Name = tables[i].TableId.ToString();
@@ -112,7 +112,7 @@ namespace Forms
         private void FillFLPSanPham(List<Product> products)
         {
             flpSanPham.Controls.Clear();
-            for(int i=0;i< products.Count; i++)
+            for (int i = 0; i < products.Count; i++)
             {
                 Panel panel = new System.Windows.Forms.Panel();
                 PictureBox pictureBox = new System.Windows.Forms.PictureBox();
@@ -163,7 +163,7 @@ namespace Forms
                 labelPrice.Text = products[i].SellPrice.ToString();
 
                 pictureBox.Tag = products[i];
-                panel.Tag = products[i];    
+                panel.Tag = products[i];
                 flpSanPham.Controls.Add(panel);
             }
         }
@@ -202,10 +202,10 @@ namespace Forms
                 int index = GetIndex(ID);
                 Product product = productService.GetProductById(int.Parse(ID));
 
-                if(!int.TryParse(SoLuongStr, out SoLuong)){
+                if (!int.TryParse(SoLuongStr, out SoLuong)) {
                     throw new Exception("Số lượng không hợp lệ");
                 }
-                if(SoLuong < 1)
+                if (SoLuong < 1)
                 {
                     throw new Exception("Không thể thêm khi số lượng bé hơn 1");
                 }
@@ -228,7 +228,7 @@ namespace Forms
                 MessageBox.Show("Thêm vào giỏ thành công!");
                 CalcTotal();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -236,7 +236,7 @@ namespace Forms
 
         private int GetIndex(string ID)
         {
-            for(int i=0;i<dgvGioHang.Rows.Count;i++)
+            for (int i = 0; i < dgvGioHang.Rows.Count; i++)
             {
                 if (dgvGioHang.Rows[i].Cells[0].Value.ToString() == ID)
                 {
@@ -295,7 +295,7 @@ namespace Forms
         {
             try
             {
-                if(MessageBox.Show($"Bạn có chắc chắn muốn bỏ {txtTenSP.Text} ra khỏi giỏ?", "Thông Báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"Bạn có chắc chắn muốn bỏ {txtTenSP.Text} ra khỏi giỏ?", "Thông Báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string MaSP = txtMaSP.Text;
                     int index = GetIndex(MaSP);
@@ -311,7 +311,7 @@ namespace Forms
                         CalcTotal();
                     }
                 }
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -329,7 +329,7 @@ namespace Forms
         private void CalcTotal()
         {
             int sum = 0;
-            for(int i = 0; i < dgvGioHang.Rows.Count; i++)
+            for (int i = 0; i < dgvGioHang.Rows.Count; i++)
             {
                 sum += int.Parse(dgvGioHang.Rows[i].Cells[4].Value.ToString());
             }
@@ -352,11 +352,11 @@ namespace Forms
             {
                 string valueStr = cbbTheLoai.SelectedValue.ToString();
                 int value;
-                if(!int.TryParse(valueStr, out value)){
+                if (!int.TryParse(valueStr, out value)) {
                     value = 0;
                 }
                 List<Product> products = new List<Product>();
-                if(value == 0)
+                if (value == 0)
                 {
                     products = productService.GetAllProducts();
                 } else
@@ -365,7 +365,7 @@ namespace Forms
                 }
                 FillFLPSanPham(products);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -375,7 +375,7 @@ namespace Forms
         {
             try
             {
-                if(MessageBox.Show("Bạn có chắc chắn thanh toán không?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("Bạn có chắc chắn thanh toán không?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     Invoice invoice = new Invoice();
                     invoice.UserId = user.UserId;
@@ -401,12 +401,11 @@ namespace Forms
                     txtGiamGia.Text = "";
                     txtCanThanhToan.Text = "";
                 }
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
             List<Product> products = new List<Product>();
@@ -417,7 +416,7 @@ namespace Forms
 
         private void cbbLocTheoGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         public void FillLocTheoGia()
@@ -450,7 +449,21 @@ namespace Forms
                 string cbbLocGiaDisplay = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Value;
                 double cbbLocGiaValue = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Key;
                 List<Product> products = new List<Product>();
-                if (cbbLocGiaDisplay.Contains("Dưới"))
+                string valueStr = cbbTheLoai.SelectedValue.ToString();
+                int value;
+                if (!int.TryParse(valueStr, out value))
+                {
+                    value = 0;
+                }
+                if (cbbLocGiaDisplay.Contains("Dưới") && value == 0)
+                {
+                    products = productService.GetAllProducts().Where(p => p.ProductName.IndexOf(Name, 0, StringComparison.OrdinalIgnoreCase) != -1 && p.SellPrice < cbbLocGiaValue).ToList();
+                }
+                else if(cbbLocGiaDisplay.Contains("Trên") && value == 0)
+                {
+                    products = productService.GetAllProducts().Where(p => p.ProductName.IndexOf(Name, 0, StringComparison.OrdinalIgnoreCase) != -1 && p.ProductName.Contains(Name) && p.SellPrice >= cbbLocGiaValue).ToList();
+                }
+                else if (cbbLocGiaDisplay.Contains("Dưới"))
                 {
                     products = productService.GetAllProducts().Where(p => p.ProductName.IndexOf(Name, 0, StringComparison.OrdinalIgnoreCase) != -1 && p.CategoryId == CategoryId && p.SellPrice < cbbLocGiaValue).ToList();
                 }
@@ -464,6 +477,13 @@ namespace Forms
             {
                 MessageBox.Show(ex.Message);
             }
+            
+        }
+        private void lịchSửĐơnĐặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLichSuDonHang frmLichSuDonHang = new FrmLichSuDonHang();
+            frmLichSuDonHang.user = user;
+            frmLichSuDonHang.ShowDialog();
         }
     }
 }

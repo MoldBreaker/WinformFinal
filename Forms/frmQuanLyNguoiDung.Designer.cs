@@ -224,6 +224,7 @@
             this.btnXemHoaDon.TabIndex = 12;
             this.btnXemHoaDon.Text = "Xem hoá đơn đã mua";
             this.btnXemHoaDon.UseVisualStyleBackColor = true;
+            this.btnXemHoaDon.Click += new System.EventHandler(this.btnXemHoaDon_Click);
             // 
             // btnCapNhat
             // 

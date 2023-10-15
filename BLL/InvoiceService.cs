@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,19 @@ namespace BLL
                 lastestInvoice.InvoiceDetails.Add(details[i]);
             }
             InvoiceDetailDAL.AddInvoiceDetailToInvoice(details);
+        }
+        public List<Invoice> GetInvoicesByUserID(int userID)
+        {
+            return InvoiceDAL.GetInvoiceByUserId(userID);
+        }
+        public Invoice GetInvoiceById(int id)
+        {
+            return InvoiceDAL.GetInvoiceById(id);
+        }
+
+        public List<Invoice> GetAllInvoices()
+        {
+            return InvoiceDAL.GetAllInvoices().OrderByDescending(i => i.CreatedAt).ToList();
         }
 
     }

@@ -144,5 +144,10 @@ namespace BLL
             user.Password = NewPassword;
             UserDAL.UpdateUser(user);
         }
+
+        public User GetUserById(int userId)
+        {
+            return UserDAL.GetUserByID(userId);
+        }
     }
 }
