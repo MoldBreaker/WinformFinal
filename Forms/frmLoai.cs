@@ -47,6 +47,7 @@ namespace Forms
                 productCategoryService.AddCategory(pc);
                 List<ProductCategory> categories = productCategoryService.GetAllCategories();
                 FillDGV(categories);
+                MessageBox.Show("Thêm thành công");
             }
             catch (Exception ex)
             {
@@ -66,6 +67,7 @@ namespace Forms
                 productCategoryService.UpdateCategory(pc);
                 List<ProductCategory> categories = productCategoryService.GetAllCategories();
                 FillDGV(categories);
+                MessageBox.Show("Cập nhật thành công");
             }
             catch (Exception ex)
             {
@@ -85,6 +87,9 @@ namespace Forms
                     productCategoryService.DeleteCategory(CategoryId);
                     List<ProductCategory> categories = productCategoryService.GetAllCategories();
                     FillDGV(categories);
+                        MessageBox.Show("Xóa thành công");
+                        txtMaLoai.Text = string.Empty;
+                        txtTenLoai.Text= string.Empty;
                 }
                     catch (Exception ex)
                     {
