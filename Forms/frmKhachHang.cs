@@ -6,9 +6,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Forms
 {
@@ -54,6 +56,8 @@ namespace Forms
             PrintPromoInfo();
             CalcTotal();
             FillComboBoxTheThoai(categories);
+            FillLocTheoGia();
+
         }
 
         private void FillComboBoxTheThoai(List<ProductCategory> categories)
@@ -120,7 +124,7 @@ namespace Forms
                 panel.Controls.Add(pictureBox);
                 panel.Location = new System.Drawing.Point(3, 3);
                 panel.Name = "panel" + products[i].ProductId.ToString();
-                panel.Size = new System.Drawing.Size(70, 80);
+                panel.Size = new System.Drawing.Size(82, 80);
                 panel.Click += new System.EventHandler(this.product_Click);
 
 
@@ -221,6 +225,7 @@ namespace Forms
                     dgvGioHang.Rows[index].Cells[3].Value = SoLuong;
                     dgvGioHang.Rows[index].Cells[4].Value = SoLuong * product.SellPrice;
                 }
+                MessageBox.Show("Thêm vào giỏ thành công!");
                 CalcTotal();
             }
             catch(Exception ex)
@@ -302,6 +307,7 @@ namespace Forms
                     {
                         dgvGioHang.Rows.RemoveAt(index);
                         MessageBox.Show("Xóa khỏi giỏ thành công");
+                        ClearInput();
                         CalcTotal();
                     }
                 }
@@ -309,6 +315,15 @@ namespace Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ClearInput()
+        {
+            txtMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtGia.Text = "";
+            txtMoTa.Text = "";
+            txtSoLuong.Text = "";
         }
 
         private void CalcTotal()
@@ -378,14 +393,76 @@ namespace Forms
                         detail.Price = int.Parse(dgvGioHang.Rows[i].Cells[4].Value.ToString());
                         details.Add(detail);
                     }
-
                     invoiceService.Checkout(invoice, details);
                     MessageBox.Show("Thanh toán thành công");
                     dgvGioHang.Rows.Clear();
+                    ClearInput();
+                    txtTongTien.Text = "";
+                    txtGiamGia.Text = "";
+                    txtCanThanhToan.Text = "";
                 }
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            List<Product> products = new List<Product>();
+            products = productService.GetAllProducts().Where(p => p.ProductName.ToUpper().Contains(txtTimKiem.Text.ToUpper())).ToList();
+            FillFLPSanPham(products);
+
+        }
+
+        private void cbbLocTheoGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void FillLocTheoGia()
+        {
+            if (user == null)
+            {
+                MessageBox.Show("Vui lòng đăng nhập");
+                this.Close();
+            }
+            List<ProductCategory> categories = productCategoryService.GetAllCategories();
+            List<Product> products = productService.GetAllProducts();
+            FillComboBoxTheThoai(categories);
+            FillFLPSanPham(products);
+            Dictionary<double, string> LocTheoGia = new Dictionary<double, string>();
+            LocTheoGia.Add(20000, "Dưới 20K");
+            LocTheoGia.Add(50000, "Dưới 50K");
+            LocTheoGia.Add(100000, "Dưới 100k");
+            LocTheoGia.Add(100001, "Trên 100k");
+            cbbLocTheoGia.DataSource = new BindingSource(LocTheoGia, null);
+            cbbLocTheoGia.DisplayMember = "Value";
+            cbbLocTheoGia.ValueMember = "Key";
+        }
+
+        private void btnLocTheoGia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Name = txtTimKiem.Text;
+                int CategoryId = int.Parse(cbbTheLoai.SelectedValue.ToString());
+                string cbbLocGiaDisplay = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Value;
+                double cbbLocGiaValue = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Key;
+                List<Product> products = new List<Product>();
+                if (cbbLocGiaDisplay.Contains("Dưới"))
+                {
+                    products = productService.GetAllProducts().Where(p => p.ProductName.IndexOf(Name, 0, StringComparison.OrdinalIgnoreCase) != -1 && p.CategoryId == CategoryId && p.SellPrice < cbbLocGiaValue).ToList();
+                }
+                else
+                {
+                    products = productService.GetAllProducts().Where(p => p.ProductName.IndexOf(Name, 0, StringComparison.OrdinalIgnoreCase) != -1 && p.ProductName.Contains(Name) && p.CategoryId == CategoryId && p.SellPrice >= cbbLocGiaValue).ToList();
+                }
+                FillFLPSanPham(products);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

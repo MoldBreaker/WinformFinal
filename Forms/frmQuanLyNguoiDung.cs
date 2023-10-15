@@ -114,6 +114,7 @@ namespace Forms
                 string RoleID = cbbVaiTro.SelectedValue.ToString();
                 userService.UpdateUserRole(UserID, RoleID);
                 frmQuanLyNguoiDung_Load(sender, e);
+                MessageBox.Show("Cập nhật thành công");
             }
             catch(Exception ex)
             {

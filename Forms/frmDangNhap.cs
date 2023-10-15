@@ -38,7 +38,6 @@ namespace Forms
                 {
                     e.Cancel = true;
                 }
-            
         }
 
         private void btnDangKi_Click(object sender, EventArgs e)
@@ -57,8 +56,7 @@ namespace Forms
                 string password = txtMatKhau.Text.Trim();
                 User userLogin = new User();
                 userLogin.Email = email;
-                userLogin.Password = password;  
-
+                userLogin.Password = password;
                 User user = userService.Login(userLogin);
                 MessageBox.Show("Đăng nhập thành công");
                 txtEmail.Text = "";
