@@ -32,7 +32,19 @@ namespace Forms
             }
             List<InvoiceDetail> invoiceDetails = invoiceDetailService.GetInvoiceDetailsByInvoiceID(invoice.InvoiceId);
             BindGrid(invoiceDetails);
+            FillTextBoxData();
         }
+
+        private void FillTextBoxData()
+        {
+            txtMaHD.Text = invoice.InvoiceId.ToString();
+            txtNguoiMua.Text = invoice.User.Username;
+            txtThoiGianMua.Text = invoice.CreatedAt.ToString("HH:mm dd/MM/yyyy");
+            txtTongTien.Text = invoice.TotalPrice.ToString();
+            txtGiamGia.Text = invoice.Discount.ToString();
+            txtSoTienPhaiTra.Text = invoice.AfterDiscount.ToString();
+        }
+
         private void BindGrid(List<InvoiceDetail> invoicedetails)
         {
             dgvChiTiet.Rows.Clear();
@@ -40,10 +52,9 @@ namespace Forms
             {
                 int index = dgvChiTiet.Rows.Add();
                 dgvChiTiet.Rows[index].Cells[0].Value = detail.Product.ProductName;
-                dgvChiTiet.Rows[index].Cells[1].Value = detail.Invoice.InvoiceId;
-                dgvChiTiet.Rows[index].Cells[2].Value = detail.Quantity;
-                dgvChiTiet.Rows[index].Cells[3].Value = detail.Product.SellPrice;
-                dgvChiTiet.Rows[index].Cells[4].Value = detail.Price;
+                dgvChiTiet.Rows[index].Cells[1].Value = detail.Quantity;
+                dgvChiTiet.Rows[index].Cells[2].Value = detail.Product.SellPrice;
+                dgvChiTiet.Rows[index].Cells[3].Value = detail.Price;
             }
         }
     }

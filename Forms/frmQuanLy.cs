@@ -273,5 +273,20 @@ namespace Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void hóaĐơnToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmQuanLyHoaDon frmQuanLyHoaDon = new frmQuanLyHoaDon();
+                frmQuanLyHoaDon.user = user;
+                this.Hide();
+                frmQuanLyHoaDon.ShowDialog();
+                this.Show();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message); 
+            }
+        }
     }
 }

@@ -29,6 +29,7 @@ namespace Forms
                 this.Close();
                 return;
             }
+            this.Text = $"Lịch sử mua hàng của {user.Username}";
             List<Invoice> invoices = invoiceService.GetInvoicesByUserID(user.UserId);
             BindGrid(invoices);
         }

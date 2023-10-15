@@ -39,5 +39,10 @@ namespace BLL
             return InvoiceDAL.GetInvoiceById(id);
         }
 
+        public List<Invoice> GetAllInvoices()
+        {
+            return InvoiceDAL.GetAllInvoices().OrderByDescending(i => i.CreatedAt).ToList();
+        }
+
     }
 }

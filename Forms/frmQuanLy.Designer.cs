@@ -538,6 +538,7 @@
             this.hóaĐơnToolStripMenuItem1.Name = "hóaĐơnToolStripMenuItem1";
             this.hóaĐơnToolStripMenuItem1.Size = new System.Drawing.Size(103, 24);
             this.hóaĐơnToolStripMenuItem1.Text = "Hóa Đơn";
+            this.hóaĐơnToolStripMenuItem1.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem1_Click);
             // 
             // mnStripQLLoai
             // 

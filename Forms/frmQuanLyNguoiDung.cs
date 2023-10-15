@@ -143,5 +143,25 @@ namespace Forms
             txtTongNV.Text = countNV.ToString();
             txtTongQL.Text = countQL.ToString();
         }
+
+        private void btnXemHoaDon_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int userId = int.Parse(txtMaNguoiDung.Text);
+                User user = userService.GetUserById(userId);
+                if (user == null)
+                {
+                    throw new Exception("Không tồn tại người dùng này");
+                }
+                FrmLichSuDonHang frmLichSuDonHang = new FrmLichSuDonHang();
+                frmLichSuDonHang.user = user;
+                frmLichSuDonHang.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
