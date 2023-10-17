@@ -106,7 +106,8 @@ namespace Forms
         {
             Button button = (Button)sender;
             Table table = (Table)button.Tag;
-            MessageBox.Show(table.TableId.ToString());
+            txtMaban.Text = table.TableId.ToString();
+            txtTenBan.Text = table.TableName;
         }
 
         private void FillFLPSanPham(List<Product> products)
@@ -383,8 +384,15 @@ namespace Forms
                     invoice.TotalPrice = int.Parse(txtTongTien.Text);
                     invoice.Discount = int.Parse(txtGiamGia.Text.Split('%')[0]);
                     invoice.AfterDiscount = int.Parse(txtCanThanhToan.Text);
+                    if(txtMaban.Text.Trim().Length == 0)
+                    {
+                        invoice.TableId = null;
+                    } else
+                    {
+                        invoice.TableId = int.Parse(txtMaban.Text);
+                    }
 
-                    List<InvoiceDetail> details = new List<InvoiceDetail>();
+                    List <InvoiceDetail> details = new List<InvoiceDetail>();
                     for (int i = 0; i < dgvGioHang.Rows.Count; i++)
                     {
                         InvoiceDetail detail = new InvoiceDetail();
@@ -400,6 +408,8 @@ namespace Forms
                     txtTongTien.Text = "";
                     txtGiamGia.Text = "";
                     txtCanThanhToan.Text = "";
+                    txtMaban.Text = "";
+                    txtTenBan.Text = "";
                 }
             } catch (Exception ex)
             {
@@ -484,6 +494,12 @@ namespace Forms
             FrmLichSuDonHang frmLichSuDonHang = new FrmLichSuDonHang();
             frmLichSuDonHang.user = user;
             frmLichSuDonHang.ShowDialog();
+        }
+
+        private void btnXoaBan_Click(object sender, EventArgs e)
+        {
+            txtMaban.Text = string.Empty;
+            txtTenBan.Text = string.Empty;
         }
     }
 }

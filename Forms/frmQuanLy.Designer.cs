@@ -99,6 +99,7 @@
             // 
             this.dgvListSanPham.AllowUserToAddRows = false;
             this.dgvListSanPham.AllowUserToDeleteRows = false;
+            this.dgvListSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListSanPham.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dgvListSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -123,7 +124,6 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 63;
             // 
             // Column2
             // 
@@ -131,7 +131,6 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
             // 
             // Column3
             // 
@@ -139,7 +138,6 @@
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
             // 
             // Column4
             // 
@@ -147,7 +145,6 @@
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
             // 
             // Column5
             // 
@@ -155,7 +152,6 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
             // 
             // Column6
             // 
@@ -163,7 +159,6 @@
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
             // 
             // panel1
             // 
@@ -450,6 +445,7 @@
             this.hóaĐơnToolStripMenuItem1.Name = "hóaĐơnToolStripMenuItem1";
             this.hóaĐơnToolStripMenuItem1.Size = new System.Drawing.Size(103, 24);
             this.hóaĐơnToolStripMenuItem1.Text = "Hóa Đơn";
+            this.hóaĐơnToolStripMenuItem1.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem1_Click);
             // 
             // mnStripQLLoai
             // 
@@ -555,99 +551,6 @@
             this.txtTimKiem.Size = new System.Drawing.Size(213, 22);
             this.txtTimKiem.TabIndex = 0;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Forms.Properties.Resources.coffee_cup_coffee_beans_wooden_table_929186_18;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(641, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // hệThốngToolStripMenuItem
-            // 
-            this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemTaiKhoan,
-            this.mnStripDangXuat});
-            this.hệThốngToolStripMenuItem.Image = global::Forms.Properties.Resources.hethong;
-            this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
-            this.hệThốngToolStripMenuItem.Text = "Hệ Thống";
-            // 
-            // menuItemTaiKhoan
-            // 
-            this.menuItemTaiKhoan.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xemThôngTinToolStripMenuItem,
-            this.menuStripDoiMatKhau});
-            this.menuItemTaiKhoan.Image = global::Forms.Properties.Resources.user;
-            this.menuItemTaiKhoan.Name = "menuItemTaiKhoan";
-            this.menuItemTaiKhoan.Size = new System.Drawing.Size(226, 26);
-            this.menuItemTaiKhoan.Text = "Thông Tin Tài Khoản";
-            // 
-            // xemThôngTinToolStripMenuItem
-            // 
-            this.xemThôngTinToolStripMenuItem.Image = global::Forms.Properties.Resources.profile;
-            this.xemThôngTinToolStripMenuItem.Name = "xemThôngTinToolStripMenuItem";
-            this.xemThôngTinToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
-            this.xemThôngTinToolStripMenuItem.Text = "Xem thông tin";
-            this.xemThôngTinToolStripMenuItem.Click += new System.EventHandler(this.xemThôngTinToolStripMenuItem_Click);
-            // 
-            // menuStripDoiMatKhau
-            // 
-            this.menuStripDoiMatKhau.Image = global::Forms.Properties.Resources.changepass;
-            this.menuStripDoiMatKhau.Name = "menuStripDoiMatKhau";
-            this.menuStripDoiMatKhau.Size = new System.Drawing.Size(186, 26);
-            this.menuStripDoiMatKhau.Text = "Đổi mật khẩu";
-            this.menuStripDoiMatKhau.Click += new System.EventHandler(this.menuStripDoiMatKhau_Click);
-            // 
-            // mnStripDangXuat
-            // 
-            this.mnStripDangXuat.Image = global::Forms.Properties.Resources._2457271;
-            this.mnStripDangXuat.Name = "mnStripDangXuat";
-            this.mnStripDangXuat.Size = new System.Drawing.Size(226, 26);
-            this.mnStripDangXuat.Text = "Đăng Xuất";
-            this.mnStripDangXuat.Click += new System.EventHandler(this.mnStripDangXuat_Click);
-            // 
-            // hóaĐơnToolStripMenuItem
-            // 
-            this.hóaĐơnToolStripMenuItem.Image = global::Forms.Properties.Resources.usermanagement;
-            this.hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
-            this.hóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
-            this.hóaĐơnToolStripMenuItem.Text = "Quản Lí Người Dùng";
-            this.hóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem_Click);
-            // 
-            // thốngKêToolStripMenuItem
-            // 
-            this.thốngKêToolStripMenuItem.Image = global::Forms.Properties.Resources.thongke;
-            this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
-            this.thốngKêToolStripMenuItem.Text = "Thống Kê";
-            // 
-            // hóaĐơnToolStripMenuItem1
-            // 
-            this.hóaĐơnToolStripMenuItem1.Image = global::Forms.Properties.Resources.hoadon;
-            this.hóaĐơnToolStripMenuItem1.Name = "hóaĐơnToolStripMenuItem1";
-            this.hóaĐơnToolStripMenuItem1.Size = new System.Drawing.Size(103, 24);
-            this.hóaĐơnToolStripMenuItem1.Text = "Hóa Đơn";
-            this.hóaĐơnToolStripMenuItem1.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem1_Click);
-            // 
-            // mnStripQLLoai
-            // 
-            this.mnStripQLLoai.Image = global::Forms.Properties.Resources.loai;
-            this.mnStripQLLoai.Name = "mnStripQLLoai";
-            this.mnStripQLLoai.Size = new System.Drawing.Size(127, 24);
-            this.mnStripQLLoai.Text = "Quản Lý Loại";
-            this.mnStripQLLoai.Click += new System.EventHandler(this.mnStripQLLoai_Click);
-            // 
-            // mnStripQuanLyBan
-            // 
-            this.mnStripQuanLyBan.Image = global::Forms.Properties.Resources.tablemanagement;
-            this.mnStripQuanLyBan.Name = "mnStripQuanLyBan";
-            this.mnStripQuanLyBan.Size = new System.Drawing.Size(124, 24);
-            this.mnStripQuanLyBan.Text = "Quản Lý Bàn";
-            this.mnStripQuanLyBan.Click += new System.EventHandler(this.mnStripQuanLyBan_Click);
             // 
             // frmQuanLy
             // 
