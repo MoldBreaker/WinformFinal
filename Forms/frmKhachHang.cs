@@ -18,6 +18,7 @@ namespace Forms
     {
         public User user = null;
         private TableService tableService = new TableService();
+        private CardService cardService = new CardService();
         private ProductService productService = new ProductService();
         private ProductCategoryService productCategoryService = new ProductCategoryService();
         private InvoiceService invoiceService = new InvoiceService();
@@ -380,7 +381,6 @@ namespace Forms
                 {
                     Invoice invoice = new Invoice();
                     invoice.UserId = user.UserId;
-                    invoice.TableId = null;
                     invoice.TotalPrice = int.Parse(txtTongTien.Text);
                     invoice.Discount = int.Parse(txtGiamGia.Text.Split('%')[0]);
                     invoice.AfterDiscount = int.Parse(txtCanThanhToan.Text);
@@ -410,10 +410,11 @@ namespace Forms
                     txtCanThanhToan.Text = "";
                     txtMaban.Text = "";
                     txtTenBan.Text = "";
+                    frmKhachHang_Load(sender, e);
                 }
             } catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
             }
         }
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -500,6 +501,49 @@ namespace Forms
         {
             txtMaban.Text = string.Empty;
             txtTenBan.Text = string.Empty;
+        }
+
+        private void đăngKýThẻToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Card userCard = cardService.GetCardByUserId(user.UserId);
+                if(userCard != null)
+                {
+                    MessageBox.Show("Tài khoản này đã có thẻ rồi");
+                    return;
+                } else
+                {
+                    frmDangKiThe frmDangKiThe = new frmDangKiThe();
+                    frmDangKiThe.user = user;
+                    frmDangKiThe.ShowDialog();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void xemThôngTinThẻToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Card card = cardService.GetCardByUserId(user.UserId);
+                if(card == null)
+                {
+                    MessageBox.Show("Vui lòng đăng kí thẻ trước");
+                    return;
+                } else
+                {
+                    frmThongTinThe frmThongTinThe = new frmThongTinThe();
+                    frmThongTinThe.user = user;
+                    frmThongTinThe.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

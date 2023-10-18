@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+using DAL;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +21,22 @@ namespace BLL
         public void RegisterCard(Card card)
         {
             string rank;
-            if(card.CardNumber.Trim().Length == 0)
+            Card checkExists = CardDAL.GetCardByCardNumber(card.CardNumber);
+            if (card.CardNumber.Trim().Length == 0)
             {
                 throw new Exception("Mã card không được để trống");
             }
+            if(card.CardNumber.Trim().Length > 10)
+            {
+                throw new Exception("Mã thẻ khng vượt quá 10 kí tự");
+            }
+            if(checkExists != null)
+            {
+                throw new Exception("Đã tồn tại thẻ có mã này");
+            }
 
             card.Point = 0;
-            if(!ranks.TryGetValue(0, out rank))
+            if (!ranks.TryGetValue(0, out rank))
             {
                 throw new Exception("Rank không hopwj lệ");
             }
@@ -59,6 +69,16 @@ namespace BLL
                 throw new Exception("Không tim thấy thẻ");
             }
             CardDAL.Delete(card);
+        }
+
+        public Card GetCardByCardNumber(string cardNumber)
+        {
+            return CardDAL.GetCardByCardNumber(cardNumber);
+        }
+
+        public Card GetCardByUserId(int userId)
+        {
+            return CardDAL.GetCardByUserId(userId);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace DAL
         public void Update(Card card)
         {
             Card c = context.Cards.FirstOrDefault(each => each.CardNumber == card.CardNumber);
-            if(c != null)
+            if (c != null)
             {
                 c.Rank = card.Rank;
                 c.Point = card.Point;
@@ -30,7 +30,7 @@ namespace DAL
         public void Delete(Card card)
         {
             Card c = context.Cards.FirstOrDefault(each => each.CardNumber == card.CardNumber);
-            if(c != null)
+            if (c != null)
             {
                 context.Cards.Remove(c);
                 context.SaveChanges();
