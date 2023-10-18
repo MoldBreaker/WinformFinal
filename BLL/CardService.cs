@@ -1,4 +1,4 @@
-﻿using DAL;
+using DAL;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -53,7 +53,7 @@ namespace BLL
             }
             foreach (var item in ranks)
             {
-                if (card.Point > item.Key)
+                if(card.Point > item.Key)
                 {
                     card.Rank = item.Value;
                 }
