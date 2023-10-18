@@ -26,13 +26,21 @@ namespace BLL
             for(int i = 0; i < details.Count; i++)
             {
                 details[i].InvoiceId = lastestInvoice.InvoiceId;
-                lastestInvoice.InvoiceDetails.Add(details[i]);
             }
             InvoiceDetailDAL.AddInvoiceDetailToInvoice(details);
+
+            //Cập nhật points cho card nếu có
+            Card card = CardDAL.GetCardByUserId(invoice.UserId);
+            if(card != null)
+            {
+                card.Point += (int)invoice.AfterDiscount / 1000;
+                CardService cardService = new CardService();
+                cardService.UpdatePoints(card);
+            }
         }
         public List<Invoice> GetInvoicesByUserID(int userID)
         {
-            return InvoiceDAL.GetInvoiceByUserId(userID);
+            return InvoiceDAL.GetInvoiceByUserId(userID).OrderByDescending(i => i.CreatedAt).ToList();
         }
         public Invoice GetInvoiceById(int id)
         {

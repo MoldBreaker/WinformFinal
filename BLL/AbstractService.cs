@@ -16,5 +16,6 @@ namespace BLL
         protected TableDAL TableDAL = new TableDAL();
         protected InvoiceDAL InvoiceDAL = new InvoiceDAL();
         protected InvoiceDetailDAL InvoiceDetailDAL = new InvoiceDetailDAL();
+        protected CardDAL CardDAL = new CardDAL();
     }
 }
