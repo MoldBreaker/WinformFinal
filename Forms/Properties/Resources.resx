@@ -130,6 +130,18 @@
   <data name="hethong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hethong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tablemanagement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tablemanagement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="changepass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\changepass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="360_F_116619399_YA611bKNOW35ffK0OiyuaOcjAgXgKBui" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\360_F_116619399_YA611bKNOW35ffK0OiyuaOcjAgXgKBui.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,7 +154,7 @@
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loai" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Xicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Xicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

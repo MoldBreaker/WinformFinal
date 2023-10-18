@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangKi));
             this.label1 = new System.Windows.Forms.Label();
             this.btnDangKi = new System.Windows.Forms.Button();
             this.btnQuayLai = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@
             // btnDangKi
             // 
             this.btnDangKi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnDangKi.Location = new System.Drawing.Point(365, 353);
+            this.btnDangKi.Location = new System.Drawing.Point(381, 353);
             this.btnDangKi.Name = "btnDangKi";
             this.btnDangKi.Size = new System.Drawing.Size(151, 48);
             this.btnDangKi.TabIndex = 5;
@@ -210,7 +211,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Forms.Properties.Resources._360_F_116619399_YA611bKNOW35ffK0OiyuaOcjAgXgKBui;
-            this.ClientSize = new System.Drawing.Size(528, 413);
+            this.ClientSize = new System.Drawing.Size(546, 404);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSDT);
@@ -227,9 +228,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmDangKi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DangKi";
+            this.Text = "Đăng Ký";
             this.Load += new System.EventHandler(this.frmDangKi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

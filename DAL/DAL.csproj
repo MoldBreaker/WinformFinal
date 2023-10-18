@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractDAL.cs" />
+    <Compile Include="InvoiceDAL.cs" />
+    <Compile Include="InvoiceDetailDAL.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Invoice.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="ProductDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleDAL.cs" />
+    <Compile Include="TableDAL.cs" />
     <Compile Include="UserDAL.cs" />
   </ItemGroup>
   <ItemGroup>

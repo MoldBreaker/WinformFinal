@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLy));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvListSanPham = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,11 +60,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripDoiMatKhau = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStripDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStripQLLoai = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnStripQuanLyBan = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMacDinh = new System.Windows.Forms.Button();
             this.btnLoc = new System.Windows.Forms.Button();
@@ -95,6 +99,7 @@
             // 
             this.dgvListSanPham.AllowUserToAddRows = false;
             this.dgvListSanPham.AllowUserToDeleteRows = false;
+            this.dgvListSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListSanPham.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dgvListSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -111,6 +116,7 @@
             this.dgvListSanPham.RowTemplate.Height = 24;
             this.dgvListSanPham.Size = new System.Drawing.Size(641, 524);
             this.dgvListSanPham.TabIndex = 0;
+            this.dgvListSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListSanPham_CellClick);
             // 
             // Column1
             // 
@@ -118,7 +124,6 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 63;
             // 
             // Column2
             // 
@@ -126,7 +131,6 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
             // 
             // Column3
             // 
@@ -134,7 +138,6 @@
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
             // 
             // Column4
             // 
@@ -142,7 +145,6 @@
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
             // 
             // Column5
             // 
@@ -150,7 +152,6 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
             // 
             // Column6
             // 
@@ -158,7 +159,6 @@
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
             // 
             // panel1
             // 
@@ -213,12 +213,13 @@
             // 
             // btnOpenfile
             // 
-            this.btnOpenfile.Location = new System.Drawing.Point(319, 298);
+            this.btnOpenfile.Location = new System.Drawing.Point(319, 287);
             this.btnOpenfile.Name = "btnOpenfile";
             this.btnOpenfile.Size = new System.Drawing.Size(53, 23);
             this.btnOpenfile.TabIndex = 5;
             this.btnOpenfile.Text = "open";
             this.btnOpenfile.UseVisualStyleBackColor = true;
+            this.btnOpenfile.Click += new System.EventHandler(this.btnOpenfile_Click);
             // 
             // txtAnh
             // 
@@ -238,9 +239,9 @@
             // 
             // rtxtMoTa
             // 
-            this.rtxtMoTa.Location = new System.Drawing.Point(159, 327);
+            this.rtxtMoTa.Location = new System.Drawing.Point(160, 316);
             this.rtxtMoTa.Name = "rtxtMoTa";
-            this.rtxtMoTa.Size = new System.Drawing.Size(213, 58);
+            this.rtxtMoTa.Size = new System.Drawing.Size(209, 37);
             this.rtxtMoTa.TabIndex = 6;
             this.rtxtMoTa.Text = "";
             // 
@@ -262,7 +263,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 325);
+            this.label5.Location = new System.Drawing.Point(30, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 22);
             this.label5.TabIndex = 20;
@@ -318,6 +319,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -341,6 +343,7 @@
             this.btnSua.TabIndex = 2;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // panel3
             // 
@@ -368,7 +371,8 @@
             this.hóaĐơnToolStripMenuItem,
             this.thốngKêToolStripMenuItem,
             this.hóaĐơnToolStripMenuItem1,
-            this.mnStripQLLoai});
+            this.mnStripQLLoai,
+            this.mnStripQuanLyBan});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1100, 28);
@@ -387,10 +391,29 @@
             // 
             // menuItemTaiKhoan
             // 
+            this.menuItemTaiKhoan.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xemThôngTinToolStripMenuItem,
+            this.menuStripDoiMatKhau});
             this.menuItemTaiKhoan.Image = global::Forms.Properties.Resources.user;
             this.menuItemTaiKhoan.Name = "menuItemTaiKhoan";
             this.menuItemTaiKhoan.Size = new System.Drawing.Size(226, 26);
             this.menuItemTaiKhoan.Text = "Thông Tin Tài Khoản";
+            // 
+            // xemThôngTinToolStripMenuItem
+            // 
+            this.xemThôngTinToolStripMenuItem.Image = global::Forms.Properties.Resources.profile;
+            this.xemThôngTinToolStripMenuItem.Name = "xemThôngTinToolStripMenuItem";
+            this.xemThôngTinToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.xemThôngTinToolStripMenuItem.Text = "Xem thông tin";
+            this.xemThôngTinToolStripMenuItem.Click += new System.EventHandler(this.xemThôngTinToolStripMenuItem_Click);
+            // 
+            // menuStripDoiMatKhau
+            // 
+            this.menuStripDoiMatKhau.Image = global::Forms.Properties.Resources.changepass;
+            this.menuStripDoiMatKhau.Name = "menuStripDoiMatKhau";
+            this.menuStripDoiMatKhau.Size = new System.Drawing.Size(186, 26);
+            this.menuStripDoiMatKhau.Text = "Đổi mật khẩu";
+            this.menuStripDoiMatKhau.Click += new System.EventHandler(this.menuStripDoiMatKhau_Click);
             // 
             // mnStripDangXuat
             // 
@@ -414,6 +437,7 @@
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
             this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.thốngKêToolStripMenuItem.Text = "Thống Kê";
+            this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // hóaĐơnToolStripMenuItem1
             // 
@@ -421,6 +445,7 @@
             this.hóaĐơnToolStripMenuItem1.Name = "hóaĐơnToolStripMenuItem1";
             this.hóaĐơnToolStripMenuItem1.Size = new System.Drawing.Size(103, 24);
             this.hóaĐơnToolStripMenuItem1.Text = "Hóa Đơn";
+            this.hóaĐơnToolStripMenuItem1.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem1_Click);
             // 
             // mnStripQLLoai
             // 
@@ -429,6 +454,14 @@
             this.mnStripQLLoai.Size = new System.Drawing.Size(127, 24);
             this.mnStripQLLoai.Text = "Quản Lý Loại";
             this.mnStripQLLoai.Click += new System.EventHandler(this.mnStripQLLoai_Click);
+            // 
+            // mnStripQuanLyBan
+            // 
+            this.mnStripQuanLyBan.Image = global::Forms.Properties.Resources.tablemanagement;
+            this.mnStripQuanLyBan.Name = "mnStripQuanLyBan";
+            this.mnStripQuanLyBan.Size = new System.Drawing.Size(124, 24);
+            this.mnStripQuanLyBan.Text = "Quản Lý Bàn";
+            this.mnStripQuanLyBan.Click += new System.EventHandler(this.mnStripQuanLyBan_Click);
             // 
             // panel2
             // 
@@ -517,6 +550,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(213, 22);
             this.txtTimKiem.TabIndex = 0;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // frmQuanLy
             // 
@@ -530,8 +564,12 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmQuanLy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.frmQuanLy_Load);
             this.VisibleChanged += new System.EventHandler(this.frmQuanLy_VisibleChanged);
@@ -595,7 +633,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem mnStripQLLoai;
+        private System.Windows.Forms.ToolStripMenuItem xemThôngTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuStripDoiMatKhau;
         private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Button btnMacDinh;
+        private System.Windows.Forms.ToolStripMenuItem mnStripQuanLyBan;
     }
 }

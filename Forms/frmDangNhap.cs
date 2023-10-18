@@ -38,7 +38,6 @@ namespace Forms
                 {
                     e.Cancel = true;
                 }
-            
         }
 
         private void btnDangKi_Click(object sender, EventArgs e)
@@ -55,11 +54,9 @@ namespace Forms
             {
                 string email = txtEmail.Text.Trim();
                 string password = txtMatKhau.Text.Trim();
-
                 User userLogin = new User();
                 userLogin.Email = email;
-                userLogin.Password = password;  
-
+                userLogin.Password = password;
                 User user = userService.Login(userLogin);
                 MessageBox.Show("Đăng nhập thành công");
                 txtEmail.Text = "";
@@ -69,6 +66,7 @@ namespace Forms
                     case "KH":
                         frmKhachHang formKhachHang = new frmKhachHang();
                         this.Hide();
+                        formKhachHang.user = user;
                         formKhachHang.ShowDialog();
                         this.Show();
                         break;
@@ -81,6 +79,7 @@ namespace Forms
                     case "QL":
                         frmQuanLy formQuanLy = new frmQuanLy();
                         this.Hide();
+                        formQuanLy.user = user;
                         formQuanLy.ShowDialog();
                         this.Show();
                         break;
@@ -97,6 +96,11 @@ namespace Forms
             {
                 btnDangNhap_Click(sender, e);
             }
+        }
+
+        private void frmDangNhap_VisibleChanged(object sender, EventArgs e)
+        {
+            Form1_Load(sender, e);
         }
     }
 }
