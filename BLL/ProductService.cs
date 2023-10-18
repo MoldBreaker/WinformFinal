@@ -86,5 +86,10 @@ namespace BLL
             }
             return ProductDAL.GetAllProducts().Where(p => p.CategoryId == category.CategoryId).ToList();
         }
+
+        public List<Product> GetTopSellers()
+        {
+            return ProductDAL.GetTopSeller(5);
+        }
     }
 }

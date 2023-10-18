@@ -36,5 +36,7 @@ namespace DAL
         {
             return context.Invoices.Where(p => p.UserId == userId).ToList();
         }
+
+
     }
 }

@@ -44,5 +44,40 @@ namespace BLL
             return InvoiceDAL.GetAllInvoices().OrderByDescending(i => i.CreatedAt).ToList();
         }
 
+        public double GetInvoicesByDayOfWeek(DateTime time)
+        {
+            DateTime monday = time;
+            DateTime sunday = time;
+            while (monday.DayOfWeek != DayOfWeek.Monday)
+            {
+                monday = monday.AddDays(-1);
+            }
+            while (sunday.DayOfWeek != DayOfWeek.Sunday)
+            {
+                sunday = sunday.AddDays(1);
+            }
+            List<Invoice> invoices = InvoiceDAL.GetAllInvoices()
+                .Where(i => i.CreatedAt >= monday && i.CreatedAt <= sunday)
+                .OrderByDescending(i => i.CreatedAt)
+                .ToList();
+
+            return invoices.Sum(i => i.AfterDiscount);
+        }
+
+        public double GetTotalRevenueByMonth(DateTime time)
+        {
+            DateTime firstDayOfMonth = new DateTime(time.Year, time.Month, 1);
+            DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+            List<Invoice> invoices = InvoiceDAL.GetAllInvoices()
+                .Where(i => i.CreatedAt >= firstDayOfMonth && i.CreatedAt <= lastDayOfMonth)
+                .OrderByDescending(i => i.CreatedAt)
+                .ToList();
+
+            double totalRevenue = invoices.Sum(i => i.AfterDiscount);
+            return totalRevenue;
+        }
+
+
     }
 }

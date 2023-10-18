@@ -9,12 +9,13 @@ namespace BLL
 {   
 
     public class InvoiceDetailService : AbstractService
-    {   
+    {
         public List<InvoiceDetail> GetInvoiceDetailsByInvoiceID(int invoiceID)
         {
             return InvoiceDetailDAL.GetInvoiceDetailsByInvoiceId(invoiceID);
         }
 
+
     }
-    
+
 }
