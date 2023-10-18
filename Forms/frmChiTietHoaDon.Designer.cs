@@ -46,6 +46,8 @@
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.txtGiamGia = new System.Windows.Forms.TextBox();
             this.txtSoTienPhaiTra = new System.Windows.Forms.TextBox();
+            this.txtBan = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTiet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,12 +200,31 @@
             this.txtSoTienPhaiTra.Size = new System.Drawing.Size(157, 22);
             this.txtSoTienPhaiTra.TabIndex = 12;
             // 
+            // txtBan
+            // 
+            this.txtBan.Location = new System.Drawing.Point(465, 20);
+            this.txtBan.Name = "txtBan";
+            this.txtBan.ReadOnly = true;
+            this.txtBan.Size = new System.Drawing.Size(157, 22);
+            this.txtBan.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(389, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 16);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Bàn";
+            // 
             // frmChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(800, 570);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtBan);
             this.Controls.Add(this.txtSoTienPhaiTra);
             this.Controls.Add(this.txtGiamGia);
             this.Controls.Add(this.txtTongTien);
@@ -248,5 +269,7 @@
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.TextBox txtGiamGia;
         private System.Windows.Forms.TextBox txtSoTienPhaiTra;
+        private System.Windows.Forms.TextBox txtBan;
+        private System.Windows.Forms.Label label7;
     }
 }
