@@ -149,5 +149,10 @@ namespace BLL
         {
             return UserDAL.GetUserByID(userId);
         }
+
+        public User GetUserByPhone(string phoneNumber)
+        {
+            return UserDAL.GetUserByPhone(phoneNumber);
+        }
     }
 }

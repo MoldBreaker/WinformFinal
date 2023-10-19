@@ -75,6 +75,7 @@ namespace Forms
                     case "NV":
                         frmNhanVien formNhanVien = new frmNhanVien();
                         this.Hide();
+                        formNhanVien.user = user;
                         formNhanVien.ShowDialog();
                         this.Show();
                         break;
