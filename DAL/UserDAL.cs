@@ -63,5 +63,10 @@ namespace DAL
         {
             return context.Users.FirstOrDefault(u => u.UserId==ID);
         }
+
+        public List<User> GetTopUsers()
+        {
+            return context.Users.OrderByDescending(u => u.Invoices.Sum(i => i.AfterDiscount)).ToList();
+        }
     }
 }

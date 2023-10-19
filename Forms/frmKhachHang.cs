@@ -414,7 +414,7 @@ namespace Forms
                 }
             } catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -422,11 +422,6 @@ namespace Forms
             List<Product> products = new List<Product>();
             products = productService.GetAllProducts().Where(p => p.ProductName.ToUpper().Contains(txtTimKiem.Text.ToUpper())).ToList();
             FillFLPSanPham(products);
-
-        }
-
-        private void cbbLocTheoGia_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -501,6 +496,7 @@ namespace Forms
         {
             txtMaban.Text = string.Empty;
             txtTenBan.Text = string.Empty;
+
         }
 
         private void đăngKýThẻToolStripMenuItem_Click(object sender, EventArgs e)
@@ -544,6 +540,11 @@ namespace Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cbbLocTheoGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

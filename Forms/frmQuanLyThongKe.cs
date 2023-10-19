@@ -15,8 +15,9 @@ namespace Forms
 {
     public partial class frmQuanLyThongKe : Form
     {
-        private ProductService productService = new ProductService();
         private InvoiceService invoiceService = new InvoiceService();
+        private ProductService ProductService = new ProductService();
+        private UserService UserService = new UserService();
         public frmQuanLyThongKe()
         {
             InitializeComponent();
@@ -28,11 +29,42 @@ namespace Forms
             {
                 FillDataChartWeek();
                 FillDataChartMonth();
-                FillTopProduct();
+                BindDGVTopSellers();
+                BindDGVTopUsers();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BindDGVTopUsers()
+        {
+            List<User> users = UserService.GetTopUsers();
+            foreach (User user in users)
+            {
+                int index = dgvTopUsers.Rows.Add();
+                dgvTopUsers.Rows[index].Cells[0].Value = index + 1;
+                dgvTopUsers.Rows[index].Cells[1].Value = user.Username;
+                dgvTopUsers.Rows[index].Cells[2].Value = user.Invoices.Sum(i => i.AfterDiscount);
+            }
+        }
+
+        private void BindDGVTopSellers()
+        {
+            List<Product> products = ProductService.GetTopSellers();
+            for (int i = 0; i < 5; i++)
+            {
+                int index = dgvTopSellers.Rows.Add();
+                dgvTopSellers.Rows[index].Cells[0].Value = index + 1;
+                try
+                {
+                    dgvTopSellers.Rows[index].Cells[1].Value = products[i].ProductName;
+                }
+                catch
+                {
+                    dgvTopSellers.Rows[index].Cells[1].Value = "Tìm Thời Chưa Có";
+                }
             }
         }
 
@@ -43,34 +75,6 @@ namespace Forms
             {
                 currentTime = currentTime.AddDays(i * -7);
                 chDoanhThuTheoTuan.Series["DoanhThu"].Points.AddXY((i == 0) ? "Hiện tại" : $"{i} tuần trước", invoiceService.GetInvoicesByDayOfWeek(currentTime));
-            }
-        }
-
-        private void FillTopProduct()
-        {
-            try
-            {
-                List<Product> Top5 = productService.GetTopSellers();
-                string labelText = "";
-                for(int i=0;i< Top5.Count; i++)
-                {
-                    if (i > 5)
-                    {
-                        break;
-                    }
-                    if (Top5[i] == null) {
-                        labelText += $"#{i + 1}: Tạm thời chưa có\n";
-                    }
-                    else
-                    {
-                        labelText += $"#{i + 1}: {Top5[i].ProductName}\n";
-                    }
-                }
-                lbTopSanPham.Text = labelText;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -99,6 +103,21 @@ namespace Forms
         private void trởVềToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void chDoanhThuTheoTuan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

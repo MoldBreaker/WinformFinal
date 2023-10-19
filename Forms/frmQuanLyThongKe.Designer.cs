@@ -42,10 +42,19 @@
             this.trởVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chThongKeTheoThang = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbTopSanPham = new System.Windows.Forms.Label();
+            this.dgvTopSellers = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTopUsers = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chDoanhThuTheoTuan)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chThongKeTheoThang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopSellers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // chDoanhThuTheoTuan
@@ -68,6 +77,7 @@
             title1.Name = "Title1";
             title1.Text = "Doanh Thu Theo Tuần";
             this.chDoanhThuTheoTuan.Titles.Add(title1);
+            this.chDoanhThuTheoTuan.Click += new System.EventHandler(this.chDoanhThuTheoTuan_Click);
             // 
             // menuStrip1
             // 
@@ -114,26 +124,101 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(33, 464);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(421, 36);
+            this.label1.Size = new System.Drawing.Size(446, 36);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Top Sản Phẩm Bán Chạy Nhất";
+            this.label1.Text = "Top 5 Sản Phẩm Bán Chạy Nhất";
             // 
-            // lbTopSanPham
+            // dgvTopSellers
             // 
-            this.lbTopSanPham.AutoSize = true;
-            this.lbTopSanPham.Location = new System.Drawing.Point(81, 527);
-            this.lbTopSanPham.Name = "lbTopSanPham";
-            this.lbTopSanPham.Size = new System.Drawing.Size(146, 16);
-            this.lbTopSanPham.TabIndex = 5;
-            this.lbTopSanPham.Text = "Thông tin top sản phẩm";
+            this.dgvTopSellers.AllowUserToAddRows = false;
+            this.dgvTopSellers.AllowUserToDeleteRows = false;
+            this.dgvTopSellers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTopSellers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTopSellers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dgvTopSellers.Location = new System.Drawing.Point(66, 521);
+            this.dgvTopSellers.Name = "dgvTopSellers";
+            this.dgvTopSellers.ReadOnly = true;
+            this.dgvTopSellers.RowHeadersWidth = 51;
+            this.dgvTopSellers.RowTemplate.Height = 24;
+            this.dgvTopSellers.Size = new System.Drawing.Size(344, 180);
+            this.dgvTopSellers.TabIndex = 5;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Hạng";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên Sản Phẩm";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dgvTopUsers
+            // 
+            this.dgvTopUsers.AllowUserToAddRows = false;
+            this.dgvTopUsers.AllowUserToDeleteRows = false;
+            this.dgvTopUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTopUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTopUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Column3,
+            this.Column4});
+            this.dgvTopUsers.Location = new System.Drawing.Point(582, 521);
+            this.dgvTopUsers.Name = "dgvTopUsers";
+            this.dgvTopUsers.ReadOnly = true;
+            this.dgvTopUsers.RowHeadersWidth = 51;
+            this.dgvTopUsers.RowTemplate.Height = 24;
+            this.dgvTopUsers.Size = new System.Drawing.Size(542, 180);
+            this.dgvTopUsers.TabIndex = 7;
+            this.dgvTopUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Hạng";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Tên Người Dùng";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Số Tiền Đã Mua";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(694, 464);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(226, 36);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Bảng Xếp Hạng";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // frmQuanLyThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1153, 776);
-            this.Controls.Add(this.lbTopSanPham);
+            this.ClientSize = new System.Drawing.Size(1153, 713);
+            this.Controls.Add(this.dgvTopUsers);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgvTopSellers);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chThongKeTheoThang);
             this.Controls.Add(this.chDoanhThuTheoTuan);
@@ -144,12 +229,14 @@
             this.MaximizeBox = false;
             this.Name = "frmQuanLyThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thống kê";
+            this.Text = "Bảng Xếp Hạng";
             this.Load += new System.EventHandler(this.frmQuanLyThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chDoanhThuTheoTuan)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chThongKeTheoThang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopSellers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,6 +248,13 @@
         private System.Windows.Forms.ToolStripMenuItem trởVềToolStripMenuItem;
         private System.Windows.Forms.DataVisualization.Charting.Chart chThongKeTheoThang;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbTopSanPham;
+        private System.Windows.Forms.DataGridView dgvTopSellers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridView dgvTopUsers;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

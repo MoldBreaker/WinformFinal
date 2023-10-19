@@ -123,6 +123,7 @@
             // 
             // cbbVaiTro
             // 
+            this.cbbVaiTro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbVaiTro.FormattingEnabled = true;
             this.cbbVaiTro.Location = new System.Drawing.Point(152, 133);
             this.cbbVaiTro.Name = "cbbVaiTro";

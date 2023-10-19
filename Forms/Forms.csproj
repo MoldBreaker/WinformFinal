@@ -273,6 +273,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cafe.ico" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\infocard.png" />
+    <None Include="Resources\Cardvip.png" />
+    <None Include="Resources\VIP.png" />
     <None Include="Resources\Xicon.jpg" />
     <None Include="Resources\profile.png" />
   </ItemGroup>

@@ -49,27 +49,10 @@ namespace DAL
             }
             context.SaveChanges();
         }
-
-        public List<Product> GetTopSeller(int num)
+        
+        public List<Product> GetTopSellers()
         {
-            var topSellers = context.InvoiceDetails
-                .GroupBy(d => d.ProductId)
-                .Select(group => new
-                {
-                    ProductID = group.Key,
-                    TotalQuantity = group.Sum(d => d.Quantity)
-                })
-                .OrderByDescending(result => result.TotalQuantity)
-                .Take(num)
-                .ToList();
-
-            var topSellerProductIDs = topSellers.Select(result => result.ProductID).ToList();
-            var topSellerProducts = context.Products
-                .Where(p => topSellerProductIDs.Contains(p.ProductId))
-                .ToList();
-            topSellerProducts.Reverse();
-
-            return topSellerProducts;
+            return context.Products.OrderByDescending(p => p.InvoiceDetails.Sum(i => i.Quantity)).ToList();
         }
 
     }

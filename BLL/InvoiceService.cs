@@ -86,6 +86,5 @@ namespace BLL
             return totalRevenue;
         }
 
-
     }
 }

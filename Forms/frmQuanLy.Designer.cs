@@ -231,6 +231,7 @@
             // 
             // cbbLoai
             // 
+            this.cbbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLoai.FormattingEnabled = true;
             this.cbbLoai.Location = new System.Drawing.Point(159, 85);
             this.cbbLoai.Name = "cbbLoai";
@@ -500,6 +501,7 @@
             // 
             // cbbLocTheoGia
             // 
+            this.cbbLocTheoGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLocTheoGia.FormattingEnabled = true;
             this.cbbLocTheoGia.Location = new System.Drawing.Point(159, 72);
             this.cbbLocTheoGia.Name = "cbbLocTheoGia";
@@ -528,6 +530,7 @@
             // 
             // cbbLocTheoLoai
             // 
+            this.cbbLocTheoLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLocTheoLoai.FormattingEnabled = true;
             this.cbbLocTheoLoai.Location = new System.Drawing.Point(158, 39);
             this.cbbLocTheoLoai.Name = "cbbLocTheoLoai";

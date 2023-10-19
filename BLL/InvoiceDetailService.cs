@@ -15,7 +15,6 @@ namespace BLL
             return InvoiceDetailDAL.GetInvoiceDetailsByInvoiceId(invoiceID);
         }
 
-
     }
 
 }

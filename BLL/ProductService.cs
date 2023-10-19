@@ -89,7 +89,7 @@ namespace BLL
 
         public List<Product> GetTopSellers()
         {
-            return ProductDAL.GetTopSeller(5);
+            return ProductDAL.GetTopSellers();
         }
     }
 }
