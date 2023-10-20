@@ -20,13 +20,6 @@ namespace Forms
             InitializeComponent();
         }
 
-       
-
-        private void frmDangKi_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDangKi_Click(object sender, EventArgs e)
         {
             try
@@ -36,7 +29,6 @@ namespace Forms
                 string phone = txtSDT.Text;
                 string password = txtMatKhau.Text;
                 string cpassword = txtNhapLaiMK.Text;
-
                 if(cpassword != password)
                 {
                     throw new Exception("Mật khẩu không trùng nhau");
@@ -46,7 +38,6 @@ namespace Forms
                 user.Email = email;
                 user.SDT = phone;
                 user.Password = password;
-
                 UserService.Register(user);
                 MessageBox.Show("Đăng kí thành công");
                 this.Close();
@@ -64,6 +55,9 @@ namespace Forms
             this.Close();
         }
 
-        
+        private void frmDangKi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

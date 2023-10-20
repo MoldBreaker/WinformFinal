@@ -56,7 +56,6 @@ namespace Forms
             List<Product> products = productService.GetAllProducts();
             FillComboBoxLoai();
             FillDGVListProducts(products);
-
             Dictionary<double, string> LocTheoGia = new Dictionary<double, string>();
             LocTheoGia.Add(20000, "Dưới 20K");
             LocTheoGia.Add(50000, "Dưới 50K");
@@ -74,8 +73,6 @@ namespace Forms
             cbbLoai.DataSource = categoriesCbbLoai;
             cbbLoai.DisplayMember = "CategoryName";
             cbbLoai.ValueMember = "CategoryId";
-
-
             List<ProductCategory> categoriesCbbLocTheoLoai = productCategoryService.GetAllCategories();
             cbbLocTheoLoai.DataSource = categoriesCbbLocTheoLoai;
             cbbLocTheoLoai.DisplayMember = "CategoryName";
@@ -100,7 +97,6 @@ namespace Forms
                 dgvListSanPham.Rows[index].Cells[3].Value = products[i].ProductName;
                 dgvListSanPham.Rows[index].Cells[4].Value = products[i].SellPrice;
                 dgvListSanPham.Rows[index].Cells[5].Value = products[i].Description.ToString();
-
             }
         }
 
@@ -120,6 +116,8 @@ namespace Forms
                 productService.AddProduct(product);
                 List<Product> products = productService.GetAllProducts();
                 FillDGVListProducts(products);
+                MessageBox.Show("Thêm thành công");
+                ClearInput();
             }
             catch (Exception ex)
             {
@@ -135,9 +133,6 @@ namespace Forms
             frmDMK.ShowDialog();
             Show();
         }
-
-      
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             try 
@@ -156,14 +151,13 @@ namespace Forms
                 pro.Description = Description;
                 productService.UpdateProduct(pro);
                 frmQuanLy_Load(sender, e);
+                MessageBox.Show("Cập nhật thành công");
+                ClearInput();
             }
             catch(Exception ex) 
             {
                 MessageBox.Show(ex.Message);
             }
-            
-           
-
         }
 
         private void dgvListSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -189,6 +183,10 @@ namespace Forms
                     productService.DeleteProduct(ProductId);
                     List<Product> pro = productService.GetAllProducts();
                     FillDGVListProducts(pro);
+                    MessageBox.Show("Xóa thành công");
+                    ClearInput();
+
+
                 }
 
             }
@@ -196,6 +194,14 @@ namespace Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        public void ClearInput()
+        {
+            txtMa.Text = string.Empty;
+            txtTen.Text = string.Empty;
+            txtGiaBan.Text = string.Empty;
+            txtAnh.Text = string.Empty;
+            rtxtMoTa.Text = string.Empty;
         }
             
         private void btnLoc_Click(object sender, EventArgs e)
@@ -206,7 +212,6 @@ namespace Forms
                 int CategoryId = int.Parse(cbbLocTheoLoai.SelectedValue.ToString());
                 string cbbLocGiaDisplay = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Value;
                 double cbbLocGiaValue = ((KeyValuePair<double, string>)cbbLocTheoGia.SelectedItem).Key;
-
                 List<Product> products = new List<Product>();
                 if (cbbLocGiaDisplay.Contains("Dưới"))
                 {
@@ -273,7 +278,13 @@ namespace Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQuanLyThongKe frmQuanLyThongKe = new frmQuanLyThongKe();
+            this.Hide();
+            frmQuanLyThongKe.ShowDialog();
+            this.Show();
+        }
         private void hóaĐơnToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try

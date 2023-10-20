@@ -26,13 +26,21 @@ namespace BLL
             for(int i = 0; i < details.Count; i++)
             {
                 details[i].InvoiceId = lastestInvoice.InvoiceId;
-                lastestInvoice.InvoiceDetails.Add(details[i]);
             }
             InvoiceDetailDAL.AddInvoiceDetailToInvoice(details);
+
+            //Cập nhật points cho card nếu có
+            Card card = CardDAL.GetCardByUserId(invoice.UserId);
+            if(card != null)
+            {
+                card.Point += (int)invoice.AfterDiscount / 1000;
+                CardService cardService = new CardService();
+                cardService.UpdatePoints(card);
+            }
         }
         public List<Invoice> GetInvoicesByUserID(int userID)
         {
-            return InvoiceDAL.GetInvoiceByUserId(userID);
+            return InvoiceDAL.GetInvoiceByUserId(userID).OrderByDescending(i => i.CreatedAt).ToList();
         }
         public Invoice GetInvoiceById(int id)
         {
@@ -44,5 +52,43 @@ namespace BLL
             return InvoiceDAL.GetAllInvoices().OrderByDescending(i => i.CreatedAt).ToList();
         }
 
+        public List<Invoice> GetInvoicesByDate(DateTime today)
+        {
+            return InvoiceDAL.GetInvoicesByDate(today);
+        }
+
+        public double GetInvoicesByDayOfWeek(DateTime time)
+        {
+            DateTime monday = time;
+            DateTime sunday = time;
+            while (monday.DayOfWeek != DayOfWeek.Monday)
+            {
+                monday = monday.AddDays(-1);
+            }
+            while (sunday.DayOfWeek != DayOfWeek.Sunday)
+            {
+                sunday = sunday.AddDays(1);
+            }
+            List<Invoice> invoices = InvoiceDAL.GetAllInvoices()
+                .Where(i => i.CreatedAt >= monday && i.CreatedAt <= sunday)
+                .OrderByDescending(i => i.CreatedAt)
+                .ToList();
+
+            return invoices.Sum(i => i.AfterDiscount);
+        }
+
+        public double GetTotalRevenueByMonth(DateTime time)
+        {
+            DateTime firstDayOfMonth = new DateTime(time.Year, time.Month, 1);
+            DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+            List<Invoice> invoices = InvoiceDAL.GetAllInvoices()
+                .Where(i => i.CreatedAt >= firstDayOfMonth && i.CreatedAt <= lastDayOfMonth)
+                .OrderByDescending(i => i.CreatedAt)
+                .ToList();
+
+            double totalRevenue = invoices.Sum(i => i.AfterDiscount);
+            return totalRevenue;
+        }
     }
 }

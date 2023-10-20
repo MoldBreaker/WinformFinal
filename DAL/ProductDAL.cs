@@ -49,7 +49,11 @@ namespace DAL
             }
             context.SaveChanges();
         }
+        
+        public List<Product> GetTopSellers()
+        {
+            return context.Products.OrderByDescending(p => p.InvoiceDetails.Sum(i => i.Quantity)).ToList();
+        }
 
-       
     }
 }

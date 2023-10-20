@@ -20,6 +20,11 @@ namespace DAL
             return context.InvoiceDetails.Where(p => p.InvoiceId == invoiceId).ToList();
         }
 
+        public List<InvoiceDetail> GetAllInvoicesDetail()
+        {
+            return context.InvoiceDetails.ToList();
+        }
+
         public void AddInvoiceDetailToInvoice(List<InvoiceDetail> invoiceDetails)
         {
             using (var transaction = context.Database.BeginTransaction())
@@ -39,5 +44,6 @@ namespace DAL
                 }
             }
         }
+
     }
 }

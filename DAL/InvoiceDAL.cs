@@ -18,7 +18,7 @@ namespace DAL
 
         public Invoice GetLastestInvoice()
         {
-            var latestInvoice = context.Invoices.OrderByDescending(i => i.InvoiceId).FirstOrDefault();
+            var latestInvoice = context.Invoices.OrderByDescending(i => i.CreatedAt).FirstOrDefault();
             return latestInvoice;
         }
 
@@ -35,6 +35,11 @@ namespace DAL
         public List<Invoice> GetInvoiceByUserId(int userId)
         {
             return context.Invoices.Where(p => p.UserId == userId).ToList();
+        }
+
+        public List<Invoice> GetInvoicesByDate(DateTime today)
+        {
+            return context.Invoices.Where(p => p.CreatedAt == today).ToList();
         }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using BLL;
 using DAL.Models;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -322,6 +326,47 @@ namespace Forms
         private void menuTable_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuExportFile_Click(object sender, EventArgs e)
+        {
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Đơn hàng");
+            var headers = new[] { "Mã đơn hàng", "Người đặt hàng", "Mã bàn", "Tổng cộng", "Ngày", "Giảm giá", "Sau khi giảm" };
+            var headerRow = sheet.CreateRow(0);
+            for (int i = 0; i < headers.Length; i++)
+            {
+                headerRow.CreateCell(i).SetCellValue(headers[i]);
+            }
+            List<Invoice> invoices = invoiceService.GetInvoicesByDate(DateTime.Today);
+            for (int i = 0; i < invoices.Count; i++)
+            {
+                var invoice = invoices[i];
+                var row = sheet.CreateRow(i + 1);
+                row.CreateCell(0).SetCellValue(invoice.InvoiceId);
+                row.CreateCell(1).SetCellValue(invoice.User.Username);
+                row.CreateCell(2).SetCellValue((int)invoice.TableId);
+                row.CreateCell(3).SetCellValue(invoice.TotalPrice);
+                row.CreateCell(4).SetCellValue(invoice.CreatedAt.ToString("dd/MM/yyyy"));
+                row.CreateCell(5).SetCellValue((double)invoice.Discount);
+                row.CreateCell(6).SetCellValue(invoice.AfterDiscount);
+            }
+            string directoryPath = "D:\\cp";
+            string filePath = Path.Combine(directoryPath, "Invoices.xlsx");
+
+            // Tạo thư mục nếu nó không tồn tại
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            // Lưu workbook vào file Excel
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                workbook.Write(fileStream);
+            }
+            Process.Start("Invoices.xlsx");
+            MessageBox.Show("Xuất file Excel thành công!");
         }
     }
 }

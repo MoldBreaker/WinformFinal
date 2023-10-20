@@ -150,6 +150,11 @@ namespace BLL
             return UserDAL.GetUserByID(userId);
         }
 
+        public List<User> GetTopUsers()
+        {
+            return UserDAL.GetTopUsers().Where(u => u.RoleId == "KH").ToList();
+        }
+
         public User GetUserByPhone(string phoneNumber)
         {
             return UserDAL.GetUserByPhone(phoneNumber);

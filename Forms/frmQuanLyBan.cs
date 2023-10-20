@@ -65,6 +65,7 @@ namespace Forms
                 table.Status = 0;
                 tableService.AddTable(table);
                 frmQuanLyBan_Load(sender, e);
+                MessageBox.Show("Thêm thành công");
             }
             catch(Exception ex)
             {
@@ -90,6 +91,7 @@ namespace Forms
                 table.TableId = TableId;
                 tableService.UpdateTable(table);
                 frmQuanLyBan_Load(sender, e);
+                MessageBox.Show("Cập nhật thành công");
             }
             catch(Exception ex)
             {
@@ -114,6 +116,7 @@ namespace Forms
                     }
                     tableService.DeleteTable(TableId);
                     frmQuanLyBan_Load(sender, e);
+                    MessageBox.Show("Xóa thành công");
                 }
             }
             catch(Exception ex)

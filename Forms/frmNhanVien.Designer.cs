@@ -33,7 +33,6 @@
             this.menuDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAccDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.menuChangePassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExportFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOrder = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,12 +88,10 @@
             // 
             this.menuSystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuDetail,
-            this.menuExportFile,
             this.toolStripSeparator1,
             this.menuLogout});
-            this.menuSystem.Image = global::Forms.Properties.Resources.hethong;
             this.menuSystem.Name = "menuSystem";
-            this.menuSystem.Size = new System.Drawing.Size(105, 24);
+            this.menuSystem.Size = new System.Drawing.Size(85, 24);
             this.menuSystem.Text = "Hệ thống";
             // 
             // menuDetail
@@ -102,33 +99,23 @@
             this.menuDetail.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAccDetail,
             this.menuChangePassword});
-            this.menuDetail.Image = global::Forms.Properties.Resources.user;
             this.menuDetail.Name = "menuDetail";
             this.menuDetail.Size = new System.Drawing.Size(224, 26);
             this.menuDetail.Text = "Thông tin tài khoản";
             // 
             // menuAccDetail
             // 
-            this.menuAccDetail.Image = global::Forms.Properties.Resources.profile;
             this.menuAccDetail.Name = "menuAccDetail";
-            this.menuAccDetail.Size = new System.Drawing.Size(224, 26);
+            this.menuAccDetail.Size = new System.Drawing.Size(186, 26);
             this.menuAccDetail.Text = "Xem thông tin";
             this.menuAccDetail.Click += new System.EventHandler(this.menuAccDetail_Click);
             // 
             // menuChangePassword
             // 
-            this.menuChangePassword.Image = global::Forms.Properties.Resources.changepass;
             this.menuChangePassword.Name = "menuChangePassword";
-            this.menuChangePassword.Size = new System.Drawing.Size(224, 26);
+            this.menuChangePassword.Size = new System.Drawing.Size(186, 26);
             this.menuChangePassword.Text = "Đổi mật khẩu";
             this.menuChangePassword.Click += new System.EventHandler(this.menuChangePassword_Click);
-            // 
-            // menuExportFile
-            // 
-            this.menuExportFile.Image = global::Forms.Properties.Resources.export;
-            this.menuExportFile.Name = "menuExportFile";
-            this.menuExportFile.Size = new System.Drawing.Size(224, 26);
-            this.menuExportFile.Text = "Xuất hóa đơn ";
             // 
             // toolStripSeparator1
             // 
@@ -137,7 +124,6 @@
             // 
             // menuLogout
             // 
-            this.menuLogout.Image = global::Forms.Properties.Resources._2457271;
             this.menuLogout.Name = "menuLogout";
             this.menuLogout.Size = new System.Drawing.Size(224, 26);
             this.menuLogout.Text = "Đăng xuất";
@@ -273,7 +259,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(416, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.Size = new System.Drawing.Size(60, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "Số lượng";
             // 
@@ -340,7 +326,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(31, 133);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 17);
+            this.label5.Size = new System.Drawing.Size(53, 16);
             this.label5.TabIndex = 15;
             this.label5.Text = "Đơn giá";
             // 
@@ -357,7 +343,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(31, 83);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.Size = new System.Drawing.Size(93, 16);
             this.label4.TabIndex = 13;
             this.label4.Text = "Tên sản phẩm";
             // 
@@ -374,7 +360,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(31, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 17);
+            this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 11;
             this.label3.Text = "Mã sản phẩm";
             // 
@@ -391,7 +377,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(890, 473);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 17);
+            this.label6.Size = new System.Drawing.Size(72, 16);
             this.label6.TabIndex = 17;
             this.label6.Text = "Tổng cộng";
             // 
@@ -408,7 +394,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(890, 510);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 17);
+            this.label7.Size = new System.Drawing.Size(101, 16);
             this.label7.TabIndex = 19;
             this.label7.Text = "Giảm % trên HĐ";
             // 
@@ -425,7 +411,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(890, 547);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 17);
+            this.label8.Size = new System.Drawing.Size(59, 16);
             this.label8.TabIndex = 21;
             this.label8.Text = "Tiền mặt";
             // 
@@ -446,8 +432,11 @@
             this.Controls.Add(this.flpSanPham);
             this.Controls.Add(this.dgvOrder);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNhanVien";
             this.Load += new System.EventHandler(this.frmNhanVien_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -470,7 +459,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuLogout;
         private System.Windows.Forms.ToolStripMenuItem menuOrder;
         private System.Windows.Forms.ToolStripMenuItem menuTable;
-        private System.Windows.Forms.ToolStripMenuItem menuExportFile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridView dgvOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;

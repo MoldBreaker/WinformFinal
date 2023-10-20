@@ -43,6 +43,7 @@ namespace Forms
             txtTongTien.Text = invoice.TotalPrice.ToString();
             txtGiamGia.Text = invoice.Discount.ToString();
             txtSoTienPhaiTra.Text = invoice.AfterDiscount.ToString();
+            txtBan.Text = invoice.TableId == null ? "Không có" : invoice.Table.TableName;
         }
 
         private void BindGrid(List<InvoiceDetail> invoicedetails)
