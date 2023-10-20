@@ -52,6 +52,11 @@ namespace BLL
             return InvoiceDAL.GetAllInvoices().OrderByDescending(i => i.CreatedAt).ToList();
         }
 
+        public List<Invoice> GetInvoicesByDate(DateTime today)
+        {
+            return InvoiceDAL.GetInvoicesByDate(today);
+        }
+
         public double GetInvoicesByDayOfWeek(DateTime time)
         {
             DateTime monday = time;
@@ -85,6 +90,5 @@ namespace BLL
             double totalRevenue = invoices.Sum(i => i.AfterDiscount);
             return totalRevenue;
         }
-
     }
 }

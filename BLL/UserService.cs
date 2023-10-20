@@ -154,5 +154,10 @@ namespace BLL
         {
             return UserDAL.GetTopUsers().Where(u => u.RoleId == "KH").ToList();
         }
+
+        public User GetUserByPhone(string phoneNumber)
+        {
+            return UserDAL.GetUserByPhone(phoneNumber);
+        }
     }
 }

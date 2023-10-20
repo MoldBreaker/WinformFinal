@@ -37,5 +37,9 @@ namespace DAL
             return context.Invoices.Where(p => p.UserId == userId).ToList();
         }
 
+        public List<Invoice> GetInvoicesByDate(DateTime today)
+        {
+            return context.Invoices.Where(p => p.CreatedAt == today).ToList();
+        }
     }
 }
