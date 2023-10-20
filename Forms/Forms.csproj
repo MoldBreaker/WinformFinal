@@ -351,7 +351,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cafe.ico" />
-    <None Include="Resources\export.png" />
     <None Include="Resources\history.png" />
     <None Include="Resources\infocard.png" />
     <None Include="Resources\Cardvip.png" />
