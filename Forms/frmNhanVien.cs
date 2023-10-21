@@ -290,13 +290,18 @@ namespace Forms
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            if (dgvOrder.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có sản phẩm để thanh toán.", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+            if (rbTable.Checked == true && string.IsNullOrEmpty(txtTableID.Text))
+            {
+                MessageBox.Show("Chưa chọn bàn");
+                return;
+            }
             try
             {
-                if (dgvOrder.Rows.Count == 0)
-                {
-                    MessageBox.Show("Không có sản phẩm để thanh toán.", "Thông báo", MessageBoxButtons.OK);
-                    return;
-                }
                 if (MessageBox.Show("Bạn có chắc chắn thanh toán không?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     frmTheThanhVien frmThe = new frmTheThanhVien();
@@ -306,7 +311,7 @@ namespace Forms
                     int point = (int)frmThe.card.Point;
                     Invoice invoice = new Invoice();
                     invoice.UserId = userID;
-                    if (rbTable.Checked == true && txtTableID.Text != null)
+                    if (rbTable.Checked == true && !string.IsNullOrEmpty(txtTableID.Text))
                     {
                         invoice.TableId = int.Parse(txtTableID.Text);
                     }
