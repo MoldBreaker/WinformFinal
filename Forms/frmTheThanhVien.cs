@@ -26,20 +26,32 @@ namespace Forms
         private void btnFind_Click(object sender, EventArgs e)
         {
             string phoneNumber = txtPhoneNumber.Text;
-            var query = from u in dBContext.Users 
-                        join c in dBContext.Cards on u.UserId equals c.UserId
-                        where u.SDT == phoneNumber
-                        select c;
-            card = query.FirstOrDefault();
-            User user = userService.GetUserByPhone(phoneNumber);
-            txtUserID.Text = user.UserId.ToString();
-            txtUserName.Text = user.Username;
-            if(card.CardNumber != null)
-                txtCardID.Text = card.CardNumber;
-            if (card.Rank != null)
-                txtRank.Text = card.Rank;
-            if (card.Point != null)
-                txtPoint.Text = card.Point.ToString();
+            if (!Validator.IsValidPhone(phoneNumber))
+            {
+                MessageBox.Show("SDT không hợp lệ");
+            }
+            else
+            {
+                var query = from u in dBContext.Users
+                            join c in dBContext.Cards on u.UserId equals c.UserId
+                            where u.SDT == phoneNumber
+                            select c;
+                card = query.FirstOrDefault();
+                User user = userService.GetUserByPhone(phoneNumber);
+                if (card == null)
+                {
+                    MessageBox.Show("Khách hàng này chưa có thẻ thành viên");
+                    //Close();
+                }
+                else
+                {
+                    txtCardID.Text = card.CardNumber;
+                    txtUserID.Text = user.UserId.ToString();
+                    txtUserName.Text = user.Username;
+                    txtRank.Text = card.Rank;
+                    txtPoint.Text = card.Point.ToString();
+                }
+            }
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)

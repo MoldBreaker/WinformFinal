@@ -36,7 +36,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOrder = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuTable = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvOrder = new System.Windows.Forms.DataGridView();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +53,9 @@
             this.btnMinus = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTableID = new System.Windows.Forms.TextBox();
+            this.rbTable = new System.Windows.Forms.RadioButton();
+            this.rbTakeAway = new System.Windows.Forms.RadioButton();
             this.txtSellPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
@@ -76,8 +78,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuSystem,
-            this.menuOrder,
-            this.menuTable});
+            this.menuOrder});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1163, 28);
@@ -100,7 +101,7 @@
             this.menuAccDetail,
             this.menuChangePassword});
             this.menuDetail.Name = "menuDetail";
-            this.menuDetail.Size = new System.Drawing.Size(224, 26);
+            this.menuDetail.Size = new System.Drawing.Size(220, 26);
             this.menuDetail.Text = "Thông tin tài khoản";
             // 
             // menuAccDetail
@@ -120,12 +121,12 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
             // 
             // menuLogout
             // 
             this.menuLogout.Name = "menuLogout";
-            this.menuLogout.Size = new System.Drawing.Size(224, 26);
+            this.menuLogout.Size = new System.Drawing.Size(220, 26);
             this.menuLogout.Text = "Đăng xuất";
             // 
             // menuOrder
@@ -134,13 +135,6 @@
             this.menuOrder.Size = new System.Drawing.Size(88, 24);
             this.menuOrder.Text = "Đơn hàng";
             this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
-            // 
-            // menuTable
-            // 
-            this.menuTable.Name = "menuTable";
-            this.menuTable.Size = new System.Drawing.Size(48, 24);
-            this.menuTable.Text = "Bàn";
-            this.menuTable.Click += new System.EventHandler(this.menuTable_Click);
             // 
             // dgvOrder
             // 
@@ -236,7 +230,7 @@
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(554, 125);
+            this.btnPay.Location = new System.Drawing.Point(553, 125);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(96, 33);
             this.btnPay.TabIndex = 5;
@@ -257,7 +251,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(416, 85);
+            this.label2.Location = new System.Drawing.Point(415, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 16);
             this.label2.TabIndex = 7;
@@ -266,7 +260,7 @@
             // txtQuantity
             // 
             this.txtQuantity.Enabled = false;
-            this.txtQuantity.Location = new System.Drawing.Point(486, 82);
+            this.txtQuantity.Location = new System.Drawing.Point(485, 24);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(100, 22);
             this.txtQuantity.TabIndex = 8;
@@ -274,7 +268,7 @@
             // btnPlus
             // 
             this.btnPlus.AutoSize = true;
-            this.btnPlus.Location = new System.Drawing.Point(592, 80);
+            this.btnPlus.Location = new System.Drawing.Point(591, 22);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(26, 27);
             this.btnPlus.TabIndex = 9;
@@ -285,7 +279,7 @@
             // btnMinus
             // 
             this.btnMinus.AutoSize = true;
-            this.btnMinus.Location = new System.Drawing.Point(624, 80);
+            this.btnMinus.Location = new System.Drawing.Point(623, 22);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(26, 27);
             this.btnMinus.TabIndex = 10;
@@ -295,6 +289,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtTableID);
+            this.panel1.Controls.Add(this.rbTable);
+            this.panel1.Controls.Add(this.rbTakeAway);
             this.panel1.Controls.Add(this.txtSellPrice);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtProductName);
@@ -312,6 +309,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(679, 171);
             this.panel1.TabIndex = 11;
+            // 
+            // txtTableID
+            // 
+            this.txtTableID.Enabled = false;
+            this.txtTableID.Location = new System.Drawing.Point(553, 92);
+            this.txtTableID.Name = "txtTableID";
+            this.txtTableID.Size = new System.Drawing.Size(96, 22);
+            this.txtTableID.TabIndex = 19;
+            // 
+            // rbTable
+            // 
+            this.rbTable.AutoSize = true;
+            this.rbTable.Location = new System.Drawing.Point(418, 92);
+            this.rbTable.Name = "rbTable";
+            this.rbTable.Size = new System.Drawing.Size(103, 20);
+            this.rbTable.TabIndex = 18;
+            this.rbTable.Text = "Dùng tại đây";
+            this.rbTable.UseVisualStyleBackColor = true;
+            this.rbTable.CheckedChanged += new System.EventHandler(this.rbTable_CheckChanged);
+            // 
+            // rbTakeAway
+            // 
+            this.rbTakeAway.AutoSize = true;
+            this.rbTakeAway.Checked = true;
+            this.rbTakeAway.Location = new System.Drawing.Point(418, 61);
+            this.rbTakeAway.Name = "rbTakeAway";
+            this.rbTakeAway.Size = new System.Drawing.Size(76, 20);
+            this.rbTakeAway.TabIndex = 17;
+            this.rbTakeAway.TabStop = true;
+            this.rbTakeAway.Text = "Mang đi";
+            this.rbTakeAway.UseVisualStyleBackColor = true;
             // 
             // txtSellPrice
             // 
@@ -458,7 +486,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuChangePassword;
         private System.Windows.Forms.ToolStripMenuItem menuLogout;
         private System.Windows.Forms.ToolStripMenuItem menuOrder;
-        private System.Windows.Forms.ToolStripMenuItem menuTable;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridView dgvOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
@@ -489,5 +516,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtAfterDiscount;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton rbTable;
+        private System.Windows.Forms.RadioButton rbTakeAway;
+        private System.Windows.Forms.TextBox txtTableID;
     }
 }

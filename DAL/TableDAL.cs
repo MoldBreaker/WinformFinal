@@ -39,5 +39,14 @@ namespace DAL
         {
             return context.Tables.FirstOrDefault(t => t.TableId == tableId);
         }
+        public void UpdateTableStatus(int id, int status)
+        {
+            Table updateTable = context.Tables.FirstOrDefault(t => t.TableId == id);
+            if (updateTable != null)
+            {
+                updateTable.Status = status;
+            }
+            context.SaveChanges();
+        }
     }
 }

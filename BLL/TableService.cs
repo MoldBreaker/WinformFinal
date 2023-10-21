@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,6 +47,16 @@ namespace BLL
                 throw new Exception("Không tìm thấy bàn này");
             }
             TableDAL.DeleteTable(deleteTable);
+        }
+
+        public Table GetTableById(int id)
+        {
+            return TableDAL.GetTableById(id);
+        }
+
+        public void UpdateTableStatus(int id, int status)
+        {
+            TableDAL.UpdateTableStatus(id, status);
         }
     }
 }

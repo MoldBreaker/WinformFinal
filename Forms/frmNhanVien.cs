@@ -234,10 +234,13 @@ namespace Forms
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
-            txtQuantity.Text = (int.Parse(txtQuantity.Text) - 1).ToString();
             if(txtQuantity.Text == "1")
             {
                 MessageBox.Show("Không thể tiếp tục giảm");
+            }
+            else
+            {
+                txtQuantity.Text = (int.Parse(txtQuantity.Text) - 1).ToString();
             }
         }
 
@@ -289,6 +292,11 @@ namespace Forms
         {
             try
             {
+                if (dgvOrder.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có sản phẩm để thanh toán.", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
                 if (MessageBox.Show("Bạn có chắc chắn thanh toán không?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     frmTheThanhVien frmThe = new frmTheThanhVien();
@@ -298,10 +306,14 @@ namespace Forms
                     int point = (int)frmThe.card.Point;
                     Invoice invoice = new Invoice();
                     invoice.UserId = userID;
-                    invoice.TableId = null;
+                    if (rbTable.Checked == true && txtTableID.Text != null)
+                    {
+                        invoice.TableId = int.Parse(txtTableID.Text);
+                    }
                     invoice.TotalPrice = int.Parse(txtTotal.Text);
                     invoice.Discount = int.Parse(txtDiscount.Text.Split('%')[0]);
                     invoice.AfterDiscount = int.Parse(txtAfterDiscount.Text);
+                    
                     List<InvoiceDetail> details = new List<InvoiceDetail>();
                     for (int i = 0; i < dgvOrder.Rows.Count; i++)
                     {
@@ -323,50 +335,14 @@ namespace Forms
             }
         }
 
-        private void menuTable_Click(object sender, EventArgs e)
+        private void rbTable_CheckChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void menuExportFile_Click(object sender, EventArgs e)
-        {
-            IWorkbook workbook = new XSSFWorkbook();
-            ISheet sheet = workbook.CreateSheet("Đơn hàng");
-            var headers = new[] { "Mã đơn hàng", "Người đặt hàng", "Mã bàn", "Tổng cộng", "Ngày", "Giảm giá", "Sau khi giảm" };
-            var headerRow = sheet.CreateRow(0);
-            for (int i = 0; i < headers.Length; i++)
+            if(rbTable.Checked == true)
             {
-                headerRow.CreateCell(i).SetCellValue(headers[i]);
+                frmTable frmTable = new frmTable();
+                frmTable.ShowDialog();
+                txtTableID.Text = frmTable.GetTextBoxValue();
             }
-            List<Invoice> invoices = invoiceService.GetInvoicesByDate(DateTime.Today);
-            for (int i = 0; i < invoices.Count; i++)
-            {
-                var invoice = invoices[i];
-                var row = sheet.CreateRow(i + 1);
-                row.CreateCell(0).SetCellValue(invoice.InvoiceId);
-                row.CreateCell(1).SetCellValue(invoice.User.Username);
-                row.CreateCell(2).SetCellValue((int)invoice.TableId);
-                row.CreateCell(3).SetCellValue(invoice.TotalPrice);
-                row.CreateCell(4).SetCellValue(invoice.CreatedAt.ToString("dd/MM/yyyy"));
-                row.CreateCell(5).SetCellValue((double)invoice.Discount);
-                row.CreateCell(6).SetCellValue(invoice.AfterDiscount);
-            }
-            string directoryPath = "D:\\cp";
-            string filePath = Path.Combine(directoryPath, "Invoices.xlsx");
-
-            // Tạo thư mục nếu nó không tồn tại
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
-
-            // Lưu workbook vào file Excel
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                workbook.Write(fileStream);
-            }
-            Process.Start("Invoices.xlsx");
-            MessageBox.Show("Xuất file Excel thành công!");
         }
     }
 }
