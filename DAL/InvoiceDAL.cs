@@ -1,6 +1,7 @@
 ﻿using DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -36,10 +37,12 @@ namespace DAL
         {
             return context.Invoices.Where(p => p.UserId == userId).ToList();
         }
-
         public List<Invoice> GetInvoicesByDate(DateTime today)
         {
-            return context.Invoices.Where(p => p.CreatedAt == today).ToList();
+            DateTime startDate = today.Date;
+            DateTime endDate = today.Date.AddDays(1);
+
+            return context.Invoices.Where(p => DbFunctions.TruncateTime(p.CreatedAt) >= startDate && DbFunctions.TruncateTime(p.CreatedAt) < endDate).ToList();
         }
     }
 }

@@ -72,11 +72,6 @@ namespace Forms
             Show();
         }
 
-        private void menuOrder_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FillFLPSanPham(List<Product> products)
         {
             flpSanPham.Controls.Clear();
@@ -308,7 +303,6 @@ namespace Forms
                     frmThe.ShowDialog();
                     string cardNumber = frmThe.card.CardNumber;
                     int userID = (int)frmThe.card.UserId;
-                    int point = (int)frmThe.card.Point;
                     Invoice invoice = new Invoice();
                     invoice.UserId = userID;
                     if (rbTable.Checked == true && !string.IsNullOrEmpty(txtTableID.Text))
@@ -348,6 +342,18 @@ namespace Forms
                 frmTable.ShowDialog();
                 txtTableID.Text = frmTable.GetTextBoxValue();
             }
+        }
+
+        private void menuTodayOrder_Click(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            List<Invoice> invoices = dBContext.Invoices.Where(d => d.CreatedAt == today).ToList();
+            
+        }
+        private void menuOrder_Click(object sender, EventArgs e)
+        {
+            frmDonHang frmDonHang = new frmDonHang();
+            frmDonHang.ShowDialog();
         }
     }
 }
