@@ -303,7 +303,7 @@ namespace Forms
                     {
                         frmTheThanhVien frmThe = new frmTheThanhVien();
                         frmThe.ShowDialog();
-                        if (frmThe.DialogResult == DialogResult.OK)
+                        if (frmThe.ConfirmButtonClicked == true)
                         {
                             string cardNumber = frmThe.card.CardNumber;
                             int userID = (int)frmThe.card.UserId;

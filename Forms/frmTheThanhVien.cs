@@ -54,9 +54,12 @@ namespace Forms
             }
         }
 
+        public bool ConfirmButtonClicked { get; private set; }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            Close();
+            ConfirmButtonClicked = true;
+            this.Close();
         }
     }
 }
