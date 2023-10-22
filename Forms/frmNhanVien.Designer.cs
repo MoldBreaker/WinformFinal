@@ -81,7 +81,7 @@
             this.menuOrder});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1163, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1163, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +92,7 @@
             this.toolStripSeparator1,
             this.menuLogout});
             this.menuSystem.Name = "menuSystem";
-            this.menuSystem.Size = new System.Drawing.Size(85, 24);
+            this.menuSystem.Size = new System.Drawing.Size(85, 26);
             this.menuSystem.Text = "Hệ thống";
             // 
             // menuDetail
@@ -132,7 +132,7 @@
             // menuOrder
             // 
             this.menuOrder.Name = "menuOrder";
-            this.menuOrder.Size = new System.Drawing.Size(88, 24);
+            this.menuOrder.Size = new System.Drawing.Size(88, 26);
             this.menuOrder.Text = "Đơn hàng";
             this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
             // 

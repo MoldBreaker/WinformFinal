@@ -54,7 +54,7 @@ namespace BLL
 
         public List<Invoice> GetInvoicesByDate(DateTime today)
         {
-            return InvoiceDAL.GetInvoicesByDate(today);
+            return InvoiceDAL.GetInvoicesByDate(today).OrderByDescending(i => i.CreatedAt).ToList();
         }
 
         public double GetInvoicesByDayOfWeek(DateTime time)

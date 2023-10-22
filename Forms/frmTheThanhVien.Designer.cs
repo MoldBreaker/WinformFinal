@@ -50,7 +50,7 @@ namespace Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(43, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 17);
+            this.label1.Size = new System.Drawing.Size(143, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nhập SDT khách hàng";
             // 
@@ -84,7 +84,7 @@ namespace Forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(43, 119);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 17);
+            this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mã thẻ";
             // 
@@ -101,7 +101,7 @@ namespace Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(43, 174);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 17);
+            this.label3.Size = new System.Drawing.Size(98, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mã khách hàng";
             // 
@@ -118,7 +118,7 @@ namespace Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(43, 279);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 17);
+            this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Hạng";
             // 
@@ -135,7 +135,7 @@ namespace Forms
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(43, 333);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 17);
+            this.label5.Size = new System.Drawing.Size(38, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "Điểm";
             // 
@@ -152,7 +152,7 @@ namespace Forms
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(43, 228);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 17);
+            this.label6.Size = new System.Drawing.Size(103, 16);
             this.label6.TabIndex = 11;
             this.label6.Text = "Tên khách hàng";
             // 
