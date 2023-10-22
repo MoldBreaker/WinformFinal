@@ -295,42 +295,55 @@ namespace Forms
                 MessageBox.Show("Chưa chọn bàn");
                 return;
             }
-            try
+            using (var transaction = dBContext.Database.BeginTransaction())
             {
-                if (MessageBox.Show("Bạn có chắc chắn thanh toán không?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                try
                 {
-                    frmTheThanhVien frmThe = new frmTheThanhVien();
-                    frmThe.ShowDialog();
-                    string cardNumber = frmThe.card.CardNumber;
-                    int userID = (int)frmThe.card.UserId;
-                    Invoice invoice = new Invoice();
-                    invoice.UserId = userID;
-                    if (rbTable.Checked == true && !string.IsNullOrEmpty(txtTableID.Text))
+                    if (MessageBox.Show("Bạn có chắc chắn thanh toán không?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
-                        invoice.TableId = int.Parse(txtTableID.Text);
+                        frmTheThanhVien frmThe = new frmTheThanhVien();
+                        frmThe.ShowDialog();
+                        if (frmThe.DialogResult == DialogResult.OK)
+                        {
+                            string cardNumber = frmThe.card.CardNumber;
+                            int userID = (int)frmThe.card.UserId;
+                            Invoice invoice = new Invoice();
+                            invoice.UserId = userID;
+                            if (rbTable.Checked == true && !string.IsNullOrEmpty(txtTableID.Text))
+                            {
+                                invoice.TableId = int.Parse(txtTableID.Text);
+                            }
+                            invoice.TotalPrice = int.Parse(txtTotal.Text);
+                            invoice.Discount = int.Parse(txtDiscount.Text.Split('%')[0]);
+                            invoice.AfterDiscount = int.Parse(txtAfterDiscount.Text);
+
+                            List<InvoiceDetail> details = new List<InvoiceDetail>();
+                            for (int i = 0; i < dgvOrder.Rows.Count; i++)
+                            {
+                                InvoiceDetail detail = new InvoiceDetail();
+                                detail.ProductId = int.Parse(dgvOrder.Rows[i].Cells[0].Value.ToString());
+                                detail.Quantity = int.Parse(dgvOrder.Rows[i].Cells[3].Value.ToString());
+                                detail.Price = int.Parse(dgvOrder.Rows[i].Cells[4].Value.ToString());
+                                details.Add(detail);
+                            }
+                            dBContext.SaveChanges();
+                            invoiceService.Checkout(invoice, details);
+                            transaction.Commit();
+
+                            MessageBox.Show("Thanh toán thành công");
+                            dgvOrder.Rows.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Chưa chọn khách hàng");
+                        }
                     }
-                    invoice.TotalPrice = int.Parse(txtTotal.Text);
-                    invoice.Discount = int.Parse(txtDiscount.Text.Split('%')[0]);
-                    invoice.AfterDiscount = int.Parse(txtAfterDiscount.Text);
-                    
-                    List<InvoiceDetail> details = new List<InvoiceDetail>();
-                    for (int i = 0; i < dgvOrder.Rows.Count; i++)
-                    {
-                        InvoiceDetail detail = new InvoiceDetail();
-                        detail.ProductId = int.Parse(dgvOrder.Rows[i].Cells[0].Value.ToString());
-                        detail.Quantity = int.Parse(dgvOrder.Rows[i].Cells[3].Value.ToString());
-                        detail.Price = int.Parse(dgvOrder.Rows[i].Cells[4].Value.ToString());
-                        details.Add(detail);
-                    }
-                    dBContext.SaveChanges();
-                    invoiceService.Checkout(invoice, details);
-                    MessageBox.Show("Thanh toán thành công");
-                    dgvOrder.Rows.Clear();
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    transaction.Rollback();
+                }
             }
         }
 
