@@ -33,51 +33,35 @@ namespace Forms
             flpBan.Controls.Clear();
             for(int i = 0; i < tables.Count; i++)
             {
-                Panel panel = new System.Windows.Forms.Panel();
-                PictureBox pictureBox = new System.Windows.Forms.PictureBox();
-                panel.Controls.Add(pictureBox);
-                panel.Location = new System.Drawing.Point(3, 3);
-                panel.Name = "panel" + tables[i].TableId.ToString();
-                panel.Size = new System.Drawing.Size(82, 80);
-                panel.Click += new System.EventHandler(this.table_Click);
+                Button btn = new System.Windows.Forms.Button();
+                btn.Location = new System.Drawing.Point(3, 3);
+                btn.Name = tables[i].TableId.ToString();
+                btn.Size = new System.Drawing.Size(80, 50);
+                btn.TabIndex = 0;
                 if (tables[i].Status == 0)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.tablechuadat;
+                    btn.Text = tables[i].TableName;
                 }
                 else if (tables[i].Status == 1)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.table;
+                    btn.Text = tables[i].TableName + "(đã đặt)";
                 }
                 else if (tables[i].Status == 2)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.tabledangsd;
+                    btn.Text = tables[i].TableName + "(đang sử dụng)";
                 }
-                pictureBox.Location = new System.Drawing.Point(4, 4);
-                pictureBox.Name = "PictureBox" + tables[i].TableId.ToString();
-                pictureBox.Size = new System.Drawing.Size(70, 50);
-                pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                pictureBox.TabIndex = 0;
-                pictureBox.TabStop = false;
-                pictureBox.Click += new System.EventHandler(this.table_Click);
-                pictureBox.Tag = tables[i];
-                panel.Tag = tables[i];
-                flpBan.Controls.Add(panel);
+                btn.UseVisualStyleBackColor = true;
+                btn.Click += new System.EventHandler(this.table_Click);
+                btn.Tag = tables[i];
+                btn.BackColor = System.Drawing.Color.FromArgb(255, 224, 192);
+                flpBan.Controls.Add(btn);
             }
         }
         private void table_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Panel panel = (Panel)sender;
-                selectedTable = (Table)panel.Tag;
-                txtTableID.Text = selectedTable.TableId.ToString();
-            }
-            catch 
-            {
-                PictureBox pictureBox = (PictureBox)sender;
-                selectedTable = (Table)pictureBox.Tag;
-                txtTableID.Text = selectedTable.TableId.ToString();
-            }
+            Button btn = (Button)sender;
+            selectedTable = (Table)btn.Tag;
+            txtTableID.Text = selectedTable.TableId.ToString();
         }
 
         private void btnChoose_Click(object sender, EventArgs e)
@@ -86,13 +70,12 @@ namespace Forms
             if(table.Status == 0)
             {
                 tableService.UpdateTableStatus(selectedTable.TableId, 2);
-                foreach(Panel panel in flpBan.Controls)
+                foreach(Button btn in flpBan.Controls)
                 {
-                    Table panelTable = (Table)panel.Tag;
-                    if (panelTable.TableId == table.TableId)
+                    Table btnTable = (Table)btn.Tag;
+                    if (btnTable.TableId == table.TableId)
                     {
-                        PictureBox pictureBox = (PictureBox)panel.Controls[0];
-                        pictureBox.Image = global::Forms.Properties.Resources.tabledangsd;
+                        btn.Text = btnTable.TableName + "(đang sử dụng)";
                     }
                 }
                 MessageBox.Show("Chọn bàn thành công");
@@ -114,13 +97,12 @@ namespace Forms
             if (table.Status == 2)
             {
                 tableService.UpdateTableStatus(selectedTable.TableId, 0);
-                foreach (Panel panel in flpBan.Controls)
+                foreach (Button btn in flpBan.Controls)
                 {
-                    Table panelTable = (Table)panel.Tag;
-                    if (panelTable.TableId == table.TableId)
+                    Table btnTable = (Table)btn.Tag;
+                    if (btnTable.TableId == table.TableId)
                     {
-                        PictureBox pictureBox = (PictureBox)panel.Controls[0];
-                        pictureBox.Image = global::Forms.Properties.Resources.tablechuadat;
+                        btn.Text = btnTable.TableName;
                     }
                 }
             }
