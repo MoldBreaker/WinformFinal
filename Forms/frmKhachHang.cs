@@ -541,10 +541,5 @@ namespace Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void cbbLocTheoGia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -582,7 +582,6 @@
             this.cbbLocTheoGia.Name = "cbbLocTheoGia";
             this.cbbLocTheoGia.Size = new System.Drawing.Size(108, 24);
             this.cbbLocTheoGia.TabIndex = 4;
-            this.cbbLocTheoGia.SelectedIndexChanged += new System.EventHandler(this.cbbLocTheoGia_SelectedIndexChanged);
             // 
             // label2
             // 
