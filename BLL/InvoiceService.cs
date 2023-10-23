@@ -69,6 +69,8 @@ namespace BLL
             {
                 sunday = sunday.AddDays(1);
             }
+            monday = monday.Date;
+            sunday = sunday.Date;
             List<Invoice> invoices = InvoiceDAL.GetAllInvoices()
                 .Where(i => i.CreatedAt >= monday && i.CreatedAt <= sunday)
                 .OrderByDescending(i => i.CreatedAt)
@@ -81,6 +83,8 @@ namespace BLL
         {
             DateTime firstDayOfMonth = new DateTime(time.Year, time.Month, 1);
             DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            firstDayOfMonth = firstDayOfMonth.Date;
+            lastDayOfMonth = lastDayOfMonth.Date;
 
             List<Invoice> invoices = InvoiceDAL.GetAllInvoices()
                 .Where(i => i.CreatedAt >= firstDayOfMonth && i.CreatedAt <= lastDayOfMonth)
