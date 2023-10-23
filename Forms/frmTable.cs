@@ -42,15 +42,15 @@ namespace Forms
                 panel.Click += new System.EventHandler(this.table_Click);
                 if (tables[i].Status == 0)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.coffee_cup_available;
+                    pictureBox.Image = global::Forms.Properties.Resources.tablechuadat;
                 }
                 else if (tables[i].Status == 1)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.coffee_cup_taken;
+                    pictureBox.Image = global::Forms.Properties.Resources.table;
                 }
                 else if (tables[i].Status == 2)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.coffee_cup_using;
+                    pictureBox.Image = global::Forms.Properties.Resources.tabledangsd;
                 }
                 pictureBox.Location = new System.Drawing.Point(4, 4);
                 pictureBox.Name = "PictureBox" + tables[i].TableId.ToString();
@@ -92,7 +92,7 @@ namespace Forms
                     if (panelTable.TableId == table.TableId)
                     {
                         PictureBox pictureBox = (PictureBox)panel.Controls[0];
-                        pictureBox.Image = global::Forms.Properties.Resources.coffee_cup_using;
+                        pictureBox.Image = global::Forms.Properties.Resources.tabledangsd;
                     }
                 }
             }
@@ -118,7 +118,7 @@ namespace Forms
                     if (panelTable.TableId == table.TableId)
                     {
                         PictureBox pictureBox = (PictureBox)panel.Controls[0];
-                        pictureBox.Image = global::Forms.Properties.Resources.coffee_cup_available;
+                        pictureBox.Image = global::Forms.Properties.Resources.tablechuadat;
                     }
                 }
             }
@@ -133,5 +133,12 @@ namespace Forms
         {
             return txtTableID.Text;
         }
+
+        private void flpBan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
     }
 }

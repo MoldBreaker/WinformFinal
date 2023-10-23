@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanVien));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDetail = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +82,7 @@
             this.menuOrder});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1163, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1163, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -91,8 +92,9 @@
             this.menuDetail,
             this.toolStripSeparator1,
             this.menuLogout});
+            this.menuSystem.Image = global::Forms.Properties.Resources.hethong;
             this.menuSystem.Name = "menuSystem";
-            this.menuSystem.Size = new System.Drawing.Size(85, 26);
+            this.menuSystem.Size = new System.Drawing.Size(105, 24);
             this.menuSystem.Text = "Hệ thống";
             // 
             // menuDetail
@@ -100,39 +102,43 @@
             this.menuDetail.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAccDetail,
             this.menuChangePassword});
+            this.menuDetail.Image = global::Forms.Properties.Resources.profile;
             this.menuDetail.Name = "menuDetail";
-            this.menuDetail.Size = new System.Drawing.Size(220, 26);
+            this.menuDetail.Size = new System.Drawing.Size(224, 26);
             this.menuDetail.Text = "Thông tin tài khoản";
             // 
             // menuAccDetail
             // 
             this.menuAccDetail.Name = "menuAccDetail";
-            this.menuAccDetail.Size = new System.Drawing.Size(186, 26);
+            this.menuAccDetail.Size = new System.Drawing.Size(224, 26);
             this.menuAccDetail.Text = "Xem thông tin";
             this.menuAccDetail.Click += new System.EventHandler(this.menuAccDetail_Click);
             // 
             // menuChangePassword
             // 
             this.menuChangePassword.Name = "menuChangePassword";
-            this.menuChangePassword.Size = new System.Drawing.Size(186, 26);
+            this.menuChangePassword.Size = new System.Drawing.Size(224, 26);
             this.menuChangePassword.Text = "Đổi mật khẩu";
             this.menuChangePassword.Click += new System.EventHandler(this.menuChangePassword_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
             // 
             // menuLogout
             // 
+            this.menuLogout.Image = global::Forms.Properties.Resources._2457271;
             this.menuLogout.Name = "menuLogout";
-            this.menuLogout.Size = new System.Drawing.Size(220, 26);
+            this.menuLogout.Size = new System.Drawing.Size(224, 26);
             this.menuLogout.Text = "Đăng xuất";
+            this.menuLogout.Click += new System.EventHandler(this.menuLogout_Click);
             // 
             // menuOrder
             // 
+            this.menuOrder.Image = global::Forms.Properties.Resources.hoadon;
             this.menuOrder.Name = "menuOrder";
-            this.menuOrder.Size = new System.Drawing.Size(88, 26);
+            this.menuOrder.Size = new System.Drawing.Size(108, 24);
             this.menuOrder.Text = "Đơn hàng";
             this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
             // 
@@ -461,11 +467,12 @@
             this.Controls.Add(this.dgvOrder);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmNhanVien";
+            this.Text = "Nhân viên";
             this.Load += new System.EventHandler(this.frmNhanVien_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

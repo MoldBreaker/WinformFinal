@@ -341,7 +341,7 @@ namespace Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.Message);
                     transaction.Rollback();
                 }
             }
@@ -367,6 +367,15 @@ namespace Forms
         {
             frmDonHang frmDonHang = new frmDonHang();
             frmDonHang.ShowDialog();
+        }
+
+        private void menuLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                Close();
+            }
         }
     }
 }

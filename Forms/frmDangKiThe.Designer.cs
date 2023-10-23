@@ -40,6 +40,7 @@
             // 
             this.txtMaThe.Location = new System.Drawing.Point(146, 31);
             this.txtMaThe.Name = "txtMaThe";
+            this.txtMaThe.ReadOnly = true;
             this.txtMaThe.Size = new System.Drawing.Size(172, 22);
             this.txtMaThe.TabIndex = 0;
             // 
@@ -92,6 +93,7 @@
             this.Controls.Add(this.txtMaThe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmDangKiThe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Ký Thẻ";

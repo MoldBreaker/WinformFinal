@@ -363,6 +363,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cafe.ico" />
+    <None Include="Resources\tabledangsd.png" />
+    <None Include="Resources\tablechuadat.png" />
+    <None Include="Resources\table.png" />
     <None Include="Resources\coffee-cup-using.png" />
     <None Include="Resources\coffee-cup-taken.png" />
     <None Include="Resources\coffee-cup-available.png" />

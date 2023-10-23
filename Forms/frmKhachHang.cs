@@ -89,6 +89,7 @@ namespace Forms
         {
             flpBan.Controls.Clear();
             for (int i = 0; i < tables.Count; i++) {
+                
                 Button btn = new System.Windows.Forms.Button();
                 btn.Location = new System.Drawing.Point(3, 3);
                 btn.Name = tables[i].TableId.ToString();
@@ -100,13 +101,15 @@ namespace Forms
                 btn.Tag = tables[i];
                 btn.BackColor = System.Drawing.Color.FromArgb(255, 224, 192);
                 flpBan.Controls.Add(btn);
+                
+                
             }
         }
 
         private void table_Click(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            Table table = (Table)button.Tag;
+            Button btn = (Button)sender;
+            Table table = (Table)btn.Tag;
             txtMaban.Text = table.TableId.ToString();
             txtTenBan.Text = table.TableName;
         }
@@ -289,7 +292,7 @@ namespace Forms
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -437,9 +440,9 @@ namespace Forms
             FillComboBoxTheThoai(categories);
             FillFLPSanPham(products);
             Dictionary<double, string> LocTheoGia = new Dictionary<double, string>();
-            LocTheoGia.Add(20000, "Dưới 20K");
-            LocTheoGia.Add(50000, "Dưới 50K");
-            LocTheoGia.Add(100000, "Dưới 100k");
+            LocTheoGia.Add(15000, "Dưới 15K");
+            LocTheoGia.Add(35000, "Dưới 35K");
+            LocTheoGia.Add(70000, "Dưới 70k");
             LocTheoGia.Add(100001, "Trên 100k");
             cbbLocTheoGia.DataSource = new BindingSource(LocTheoGia, null);
             cbbLocTheoGia.DisplayMember = "Value";

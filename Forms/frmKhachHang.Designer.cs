@@ -507,7 +507,7 @@
             // 
             // btnXoaBan
             // 
-            this.btnXoaBan.Location = new System.Drawing.Point(-1, 44);
+            this.btnXoaBan.Location = new System.Drawing.Point(5, 41);
             this.btnXoaBan.Name = "btnXoaBan";
             this.btnXoaBan.Size = new System.Drawing.Size(134, 35);
             this.btnXoaBan.TabIndex = 3;

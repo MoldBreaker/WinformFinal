@@ -33,7 +33,7 @@ namespace Forms
             if(result == DialogResult.OK)
             {
                 IsLogout = true;
-                this.Close();
+                Close();
             }
         }
 
@@ -50,16 +50,16 @@ namespace Forms
             if(user == null)
             {
                 MessageBox.Show("Vui lòng đăng nhập");
-                this.Close();
+                Close();
             }
             List<ProductCategory> categories = productCategoryService.GetAllCategories();
             List<Product> products = productService.GetAllProducts();
             FillComboBoxLoai();
             FillDGVListProducts(products);
             Dictionary<double, string> LocTheoGia = new Dictionary<double, string>();
-            LocTheoGia.Add(20000, "Dưới 20K");
-            LocTheoGia.Add(50000, "Dưới 50K");
-            LocTheoGia.Add(100000, "Dưới 100k");
+            LocTheoGia.Add(15000, "Dưới 15K");
+            LocTheoGia.Add(35000, "Dưới 35K");
+            LocTheoGia.Add(70000, "Dưới 70k");
             LocTheoGia.Add(100001, "Trên 100k");
             cbbLocTheoGia.DataSource = new BindingSource(LocTheoGia, null);
             cbbLocTheoGia.DisplayMember = "Value";
