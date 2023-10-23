@@ -56,12 +56,20 @@ namespace Forms
         {
             int id = int.Parse(txtFind.Text);
             Invoice invoice = invoiceService.GetInvoiceById(id);
-            dgvOrderHistory.Rows.Clear();
-            int index = dgvOrderHistory.Rows.Add();
-            dgvOrderHistory.Rows[index].Cells[0].Value = invoice.InvoiceId;
-            dgvOrderHistory.Rows[index].Cells[1].Value = invoice.User.Username;
-            dgvOrderHistory.Rows[index].Cells[2].Value = invoice.AfterDiscount;
-            dgvOrderHistory.Rows[index].Cells[3].Value = invoice.CreatedAt;
+            if(invoice == null)
+            {
+                MessageBox.Show("Không có đơn hàng này");
+            }    
+            else
+            {
+                dgvOrderHistory.Rows.Clear();
+                int index = dgvOrderHistory.Rows.Add();
+                dgvOrderHistory.Rows[index].Cells[0].Value = invoice.InvoiceId;
+                dgvOrderHistory.Rows[index].Cells[1].Value = invoice.User.Username;
+                dgvOrderHistory.Rows[index].Cells[2].Value = invoice.AfterDiscount;
+                dgvOrderHistory.Rows[index].Cells[3].Value = invoice.CreatedAt;
+            }    
+            txtFind.Text = "";
         }
 
         private void dgvLichSu_CellClick(object sender, DataGridViewCellEventArgs e)
