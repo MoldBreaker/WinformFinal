@@ -73,8 +73,8 @@ namespace Forms
             DateTime currentTime = DateTime.Now;
             for (int i = 0; i < 5; i++)
             {
-                currentTime = currentTime.AddDays(i * -7);
                 chDoanhThuTheoTuan.Series["DoanhThu"].Points.AddXY((i == 0) ? "Hiện tại" : $"{i} tuần trước", invoiceService.GetInvoicesByDayOfWeek(currentTime));
+                currentTime = currentTime.AddDays(-7);
             }
         }
 
