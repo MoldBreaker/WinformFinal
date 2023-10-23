@@ -368,5 +368,10 @@ namespace Forms
             frmDonHang frmDonHang = new frmDonHang();
             frmDonHang.ShowDialog();
         }
+
+        private void menuLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

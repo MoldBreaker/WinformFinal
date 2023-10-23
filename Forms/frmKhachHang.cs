@@ -289,7 +289,7 @@ namespace Forms
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -437,9 +437,9 @@ namespace Forms
             FillComboBoxTheThoai(categories);
             FillFLPSanPham(products);
             Dictionary<double, string> LocTheoGia = new Dictionary<double, string>();
-            LocTheoGia.Add(20000, "Dưới 20K");
-            LocTheoGia.Add(50000, "Dưới 50K");
-            LocTheoGia.Add(100000, "Dưới 100k");
+            LocTheoGia.Add(15000, "Dưới 15K");
+            LocTheoGia.Add(35000, "Dưới 35K");
+            LocTheoGia.Add(70000, "Dưới 70k");
             LocTheoGia.Add(100001, "Trên 100k");
             cbbLocTheoGia.DataSource = new BindingSource(LocTheoGia, null);
             cbbLocTheoGia.DisplayMember = "Value";
@@ -542,9 +542,6 @@ namespace Forms
             }
         }
 
-        private void cbbLocTheoGia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

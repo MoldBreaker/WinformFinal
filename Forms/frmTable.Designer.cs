@@ -29,8 +29,11 @@ namespace Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTable));
             this.flpBan = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFinishedUsing = new System.Windows.Forms.Button();
+            this.btnChoose = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,8 +42,6 @@ namespace Forms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTableID = new System.Windows.Forms.TextBox();
-            this.btnChoose = new System.Windows.Forms.Button();
-            this.btnFinishedUsing = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -71,6 +72,26 @@ namespace Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(642, 134);
             this.panel1.TabIndex = 1;
+            // 
+            // btnFinishedUsing
+            // 
+            this.btnFinishedUsing.Location = new System.Drawing.Point(139, 84);
+            this.btnFinishedUsing.Name = "btnFinishedUsing";
+            this.btnFinishedUsing.Size = new System.Drawing.Size(75, 23);
+            this.btnFinishedUsing.TabIndex = 9;
+            this.btnFinishedUsing.Text = "Trả bàn";
+            this.btnFinishedUsing.UseVisualStyleBackColor = true;
+            this.btnFinishedUsing.Click += new System.EventHandler(this.btnFinishedUsing_Click);
+            // 
+            // btnChoose
+            // 
+            this.btnChoose.Location = new System.Drawing.Point(41, 84);
+            this.btnChoose.Name = "btnChoose";
+            this.btnChoose.Size = new System.Drawing.Size(75, 23);
+            this.btnChoose.TabIndex = 8;
+            this.btnChoose.Text = "Chọn";
+            this.btnChoose.UseVisualStyleBackColor = true;
+            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
             // label4
             // 
@@ -145,26 +166,6 @@ namespace Forms
             this.txtTableID.Size = new System.Drawing.Size(100, 22);
             this.txtTableID.TabIndex = 0;
             // 
-            // btnChoose
-            // 
-            this.btnChoose.Location = new System.Drawing.Point(41, 84);
-            this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(75, 23);
-            this.btnChoose.TabIndex = 8;
-            this.btnChoose.Text = "Chọn";
-            this.btnChoose.UseVisualStyleBackColor = true;
-            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
-            // 
-            // btnFinishedUsing
-            // 
-            this.btnFinishedUsing.Location = new System.Drawing.Point(139, 84);
-            this.btnFinishedUsing.Name = "btnFinishedUsing";
-            this.btnFinishedUsing.Size = new System.Drawing.Size(75, 23);
-            this.btnFinishedUsing.TabIndex = 9;
-            this.btnFinishedUsing.Text = "Trả bàn";
-            this.btnFinishedUsing.UseVisualStyleBackColor = true;
-            this.btnFinishedUsing.Click += new System.EventHandler(this.btnFinishedUsing_Click);
-            // 
             // frmTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -173,8 +174,12 @@ namespace Forms
             this.ClientSize = new System.Drawing.Size(667, 440);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flpBan);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmTable";
-            this.Text = "frmTable";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Bàn";
             this.Load += new System.EventHandler(this.frmTable_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

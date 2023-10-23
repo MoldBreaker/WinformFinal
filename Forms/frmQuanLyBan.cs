@@ -66,6 +66,7 @@ namespace Forms
                 tableService.AddTable(table);
                 frmQuanLyBan_Load(sender, e);
                 MessageBox.Show("Thêm thành công");
+                txtTenBan.Text = string.Empty;
             }
             catch(Exception ex)
             {
@@ -92,6 +93,8 @@ namespace Forms
                 tableService.UpdateTable(table);
                 frmQuanLyBan_Load(sender, e);
                 MessageBox.Show("Cập nhật thành công");
+                txtMaBan.Text = string.Empty;
+                txtTenBan.Text = string.Empty;
             }
             catch(Exception ex)
             {
@@ -117,6 +120,7 @@ namespace Forms
                     tableService.DeleteTable(TableId);
                     frmQuanLyBan_Load(sender, e);
                     MessageBox.Show("Xóa thành công");
+                    txtTenBan.Text = string.Empty;
                 }
             }
             catch(Exception ex)

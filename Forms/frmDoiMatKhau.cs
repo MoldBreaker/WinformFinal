@@ -30,7 +30,7 @@ namespace Forms
                 string CMKMoi = txtCMatKhauMoi.Text;
                 userService.ChangePassword(user.UserId, MKCu, MKMoi, CMKMoi);
                 MessageBox.Show("Đổi Mật Khẩu Thành Công");
-                this.Close();
+                Close();
             }
             catch(Exception ex)
             {

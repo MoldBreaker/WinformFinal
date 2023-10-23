@@ -115,6 +115,11 @@ namespace Forms
                 userService.UpdateUserRole(UserID, RoleID);
                 frmQuanLyNguoiDung_Load(sender, e);
                 MessageBox.Show("Cập nhật thành công");
+                txtMaNguoiDung.Text = string.Empty;
+                txtTenNguoiDung.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                txtSDT.Text = string.Empty;
+
             }
             catch(Exception ex)
             {
@@ -149,6 +154,10 @@ namespace Forms
         {
             try
             {
+                if(txtMaNguoiDung.Text == string.Empty)
+                {
+                    throw new Exception("Bạn chưa chọn người dùng nào");
+                }
                 int userId = int.Parse(txtMaNguoiDung.Text);
                 User user = userService.GetUserById(userId);
                 if (user == null)

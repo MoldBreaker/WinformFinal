@@ -39,7 +39,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyThongKe));
             this.chDoanhThuTheoTuan = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.trởVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chThongKeTheoThang = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvTopSellers = new System.Windows.Forms.DataGridView();
@@ -51,7 +50,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chDoanhThuTheoTuan)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chThongKeTheoThang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopSellers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopUsers)).BeginInit();
@@ -77,25 +75,15 @@
             title1.Name = "Title1";
             title1.Text = "Doanh Thu Theo Tuần";
             this.chDoanhThuTheoTuan.Titles.Add(title1);
-            this.chDoanhThuTheoTuan.Click += new System.EventHandler(this.chDoanhThuTheoTuan_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trởVềToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1153, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1153, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // trởVềToolStripMenuItem
-            // 
-            this.trởVềToolStripMenuItem.Name = "trởVềToolStripMenuItem";
-            this.trởVềToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
-            this.trởVềToolStripMenuItem.Text = "Trở Về";
-            this.trởVềToolStripMenuItem.Click += new System.EventHandler(this.trởVềToolStripMenuItem_Click);
             // 
             // chThongKeTheoThang
             // 
@@ -176,7 +164,7 @@
             this.dgvTopUsers.RowTemplate.Height = 24;
             this.dgvTopUsers.Size = new System.Drawing.Size(542, 180);
             this.dgvTopUsers.TabIndex = 7;
-            this.dgvTopUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -208,7 +196,6 @@
             this.label2.Size = new System.Drawing.Size(226, 36);
             this.label2.TabIndex = 6;
             this.label2.Text = "Bảng Xếp Hạng";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // frmQuanLyThongKe
             // 
@@ -232,8 +219,6 @@
             this.Text = "Bảng Xếp Hạng";
             this.Load += new System.EventHandler(this.frmQuanLyThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chDoanhThuTheoTuan)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chThongKeTheoThang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopSellers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopUsers)).EndInit();
@@ -245,7 +230,6 @@
         #endregion
         private System.Windows.Forms.DataVisualization.Charting.Chart chDoanhThuTheoTuan;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem trởVềToolStripMenuItem;
         private System.Windows.Forms.DataVisualization.Charting.Chart chThongKeTheoThang;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvTopSellers;

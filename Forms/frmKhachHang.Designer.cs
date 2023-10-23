@@ -507,7 +507,7 @@
             // 
             // btnXoaBan
             // 
-            this.btnXoaBan.Location = new System.Drawing.Point(-1, 44);
+            this.btnXoaBan.Location = new System.Drawing.Point(5, 41);
             this.btnXoaBan.Name = "btnXoaBan";
             this.btnXoaBan.Size = new System.Drawing.Size(134, 35);
             this.btnXoaBan.TabIndex = 3;
@@ -582,7 +582,6 @@
             this.cbbLocTheoGia.Name = "cbbLocTheoGia";
             this.cbbLocTheoGia.Size = new System.Drawing.Size(108, 24);
             this.cbbLocTheoGia.TabIndex = 4;
-            this.cbbLocTheoGia.SelectedIndexChanged += new System.EventHandler(this.cbbLocTheoGia_SelectedIndexChanged);
             // 
             // label2
             // 

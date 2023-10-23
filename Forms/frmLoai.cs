@@ -48,6 +48,7 @@ namespace Forms
                 List<ProductCategory> categories = productCategoryService.GetAllCategories();
                 FillDGV(categories);
                 MessageBox.Show("Thêm thành công");
+                txtTenLoai.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -68,6 +69,8 @@ namespace Forms
                 List<ProductCategory> categories = productCategoryService.GetAllCategories();
                 FillDGV(categories);
                 MessageBox.Show("Cập nhật thành công");
+                txtMaLoai.Text = string.Empty;
+                txtTenLoai.Text = string.Empty;
             }
             catch (Exception ex)
             {
