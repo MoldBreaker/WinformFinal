@@ -95,6 +95,8 @@ namespace Forms
                         pictureBox.Image = global::Forms.Properties.Resources.tabledangsd;
                     }
                 }
+                MessageBox.Show("Chọn bàn thành công");
+                this.Close();
             }
             else if(table.Status == 1)
             {
