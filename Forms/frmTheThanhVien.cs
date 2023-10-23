@@ -26,7 +26,10 @@ namespace Forms
         private void btnFind_Click(object sender, EventArgs e)
         {
             string phoneNumber = txtPhoneNumber.Text;
-            if (!Validator.IsValidPhone(phoneNumber))
+            if(phoneNumber.Trim().Length == 0)
+            {
+                MessageBox.Show("Phải nhập sdt");
+            } else if (!Validator.IsValidPhone(phoneNumber))
             {
                 MessageBox.Show("SDT không hợp lệ");
             }
@@ -58,8 +61,14 @@ namespace Forms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            ConfirmButtonClicked = true;
-            this.Close();
+            if(txtCardID.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Chưa chọn được khách hàng");
+            } else
+            {
+                ConfirmButtonClicked = true;
+                this.Close();
+            }
         }
     }
 }
