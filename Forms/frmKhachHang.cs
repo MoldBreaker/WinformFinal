@@ -89,6 +89,7 @@ namespace Forms
         {
             flpBan.Controls.Clear();
             for (int i = 0; i < tables.Count; i++) {
+                
                 Button btn = new System.Windows.Forms.Button();
                 btn.Location = new System.Drawing.Point(3, 3);
                 btn.Name = tables[i].TableId.ToString();
@@ -100,13 +101,15 @@ namespace Forms
                 btn.Tag = tables[i];
                 btn.BackColor = System.Drawing.Color.FromArgb(255, 224, 192);
                 flpBan.Controls.Add(btn);
+                
+                
             }
         }
 
         private void table_Click(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            Table table = (Table)button.Tag;
+            Button btn = (Button)sender;
+            Table table = (Table)btn.Tag;
             txtMaban.Text = table.TableId.ToString();
             txtTenBan.Text = table.TableName;
         }
@@ -541,7 +544,5 @@ namespace Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
-        
     }
 }
