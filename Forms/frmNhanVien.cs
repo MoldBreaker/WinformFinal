@@ -195,6 +195,10 @@ namespace Forms
                     dgvOrder.Rows[index].Cells[4].Value = quantity * product.SellPrice;
                 }
                 CalcTotal();
+                txtProductID.Text = "";
+                txtProductName.Text = "";
+                txtSellPrice.Text = "";
+                txtQuantity.Text = "0";
             }
             catch(Exception ex)
             {
