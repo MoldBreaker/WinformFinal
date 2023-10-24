@@ -58,12 +58,12 @@ namespace Forms
             {
                 string IdStr = txtFind.Text.Trim();
                 int id;
-                if(!int.TryParse(IdStr, out id))
+                if (!int.TryParse(IdStr, out id))
                 {
                     throw new Exception("Mã không hợp lệ");
                 }
                 Invoice invoice = invoiceService.GetInvoiceById(id);
-                if(invoice == null)
+                if (invoice == null)
                 {
                     throw new Exception("Không tìm thấy hóa đơn");
                 }
@@ -74,10 +74,11 @@ namespace Forms
                 dgvOrderHistory.Rows[index].Cells[2].Value = invoice.AfterDiscount;
                 dgvOrderHistory.Rows[index].Cells[3].Value = invoice.CreatedAt;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            txtFind.Text = "";
         }
 
         private void dgvLichSu_CellClick(object sender, DataGridViewCellEventArgs e)
