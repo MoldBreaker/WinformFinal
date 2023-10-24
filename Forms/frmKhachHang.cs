@@ -379,7 +379,7 @@ namespace Forms
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             try
-            {
+                {
                 if (MessageBox.Show("Bạn có chắc chắn thanh toán không?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     Invoice invoice = new Invoice();
