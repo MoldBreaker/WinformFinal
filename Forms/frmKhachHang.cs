@@ -202,6 +202,10 @@ namespace Forms
             try
             {
                 string ID = txtMaSP.Text;
+                if(ID.Trim().Length == 0)
+                {
+                    throw new Exception("Vui lòng chọn sản phẩm trước");
+                }
                 string SoLuongStr = txtSoLuong.Text;
                 int SoLuong;
                 int index = GetIndex(ID);

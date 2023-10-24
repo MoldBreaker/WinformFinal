@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDonHang));
             this.dgvOrderHistory = new System.Windows.Forms.DataGridView();
             this.InvoiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +46,7 @@
             // 
             this.dgvOrderHistory.AllowUserToAddRows = false;
             this.dgvOrderHistory.AllowUserToDeleteRows = false;
+            this.dgvOrderHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrderHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InvoiceID,
@@ -66,7 +68,6 @@
             this.InvoiceID.MinimumWidth = 6;
             this.InvoiceID.Name = "InvoiceID";
             this.InvoiceID.ReadOnly = true;
-            this.InvoiceID.Width = 125;
             // 
             // UserName
             // 
@@ -74,7 +75,6 @@
             this.UserName.MinimumWidth = 6;
             this.UserName.Name = "UserName";
             this.UserName.ReadOnly = true;
-            this.UserName.Width = 125;
             // 
             // Total
             // 
@@ -82,7 +82,6 @@
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
-            this.Total.Width = 125;
             // 
             // CreatedAt
             // 
@@ -90,7 +89,6 @@
             this.CreatedAt.MinimumWidth = 6;
             this.CreatedAt.Name = "CreatedAt";
             this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 125;
             // 
             // rbAll
             // 
@@ -154,8 +152,12 @@
             this.Controls.Add(this.rbToday);
             this.Controls.Add(this.rbAll);
             this.Controls.Add(this.dgvOrderHistory);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmDonHang";
-            this.Text = "frmDonHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Đơn Hàng";
             this.Load += new System.EventHandler(this.frmDonHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderHistory)).EndInit();
             this.ResumeLayout(false);

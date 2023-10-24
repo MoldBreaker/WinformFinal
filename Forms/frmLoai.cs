@@ -60,6 +60,10 @@ namespace Forms
         {
             try
             {
+                if(txtMaLoai.Text.Length == 0)
+                {
+                    throw new Exception("Vui lòng chọn loại trước");
+                }
                 int CategoryId = int.Parse(txtMaLoai.Text);
                 string CategoryName = txtTenLoai.Text;
                 ProductCategory pc = new ProductCategory();
@@ -86,6 +90,10 @@ namespace Forms
                 if (result == DialogResult.OK)
                 try
                 {
+                    if(txtMaLoai.Text.Length == 0)
+                        {
+                            throw new Exception("Vui lòng chọn loại trước");
+                        }
                     int CategoryId = int.Parse(txtMaLoai.Text);
                     productCategoryService.DeleteCategory(CategoryId);
                     List<ProductCategory> categories = productCategoryService.GetAllCategories();

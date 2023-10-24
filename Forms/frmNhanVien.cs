@@ -1,7 +1,5 @@
 ﻿using BLL;
 using DAL.Models;
-using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -174,6 +172,10 @@ namespace Forms
         {
             try
             {
+                if(txtProductID.Text.Trim().Length == 0)
+                {
+                    throw new Exception("Vui lòng chọn sản phẩm trước");
+                }
                 Product product = productService.GetProductById(selectedProduct.ProductId);
                 int quantity = int.Parse(txtQuantity.Text);
                 int index = GetIndex(selectedProduct.ProductId);
@@ -195,6 +197,10 @@ namespace Forms
                     dgvOrder.Rows[index].Cells[4].Value = quantity * product.SellPrice;
                 }
                 CalcTotal();
+                txtProductID.Text = "";
+                txtProductName.Text = "";
+                txtSellPrice.Text = "";
+                txtQuantity.Text = "0";
             }
             catch(Exception ex)
             {
@@ -245,6 +251,10 @@ namespace Forms
             {
                  if (MessageBox.Show($"Bạn có chắc chắn muốn bỏ {txtProductName.Text} ra khỏi giỏ?", "Thông Báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                  {
+                    if(txtProductID.Text.Trim().Length == 0)
+                    {
+                        throw new Exception("Vui lòng chọn sản phẩm trước");
+                    }
                     int index = GetIndex(int.Parse(txtProductID.Text));
                     if (index == -1)
                      {
@@ -331,6 +341,7 @@ namespace Forms
                             transaction.Commit();
 
                             MessageBox.Show("Thanh toán thành công");
+                            txtTableID.Text = "";
                             dgvOrder.Rows.Clear();
                         }
                         else
@@ -355,6 +366,10 @@ namespace Forms
                 frmTable.ShowDialog();
                 txtTableID.Text = frmTable.GetTextBoxValue();
             }
+            else
+            {
+                txtTableID.Text = "";
+            }    
         }
 
         private void menuTodayOrder_Click(object sender, EventArgs e)
