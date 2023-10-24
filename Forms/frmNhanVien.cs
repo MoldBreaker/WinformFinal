@@ -1,7 +1,5 @@
 ﻿using BLL;
 using DAL.Models;
-using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -174,6 +172,10 @@ namespace Forms
         {
             try
             {
+                if(txtProductID.Text.Trim().Length == 0)
+                {
+                    throw new Exception("Vui lòng chọn sản phẩm trước");
+                }
                 Product product = productService.GetProductById(selectedProduct.ProductId);
                 int quantity = int.Parse(txtQuantity.Text);
                 int index = GetIndex(selectedProduct.ProductId);
@@ -249,6 +251,10 @@ namespace Forms
             {
                  if (MessageBox.Show($"Bạn có chắc chắn muốn bỏ {txtProductName.Text} ra khỏi giỏ?", "Thông Báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                  {
+                    if(txtProductID.Text.Trim().Length == 0)
+                    {
+                        throw new Exception("Vui lòng chọn sản phẩm trước");
+                    }
                     int index = GetIndex(int.Parse(txtProductID.Text));
                     if (index == -1)
                      {

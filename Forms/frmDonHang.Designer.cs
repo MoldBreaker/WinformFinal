@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDonHang));
             this.dgvOrderHistory = new System.Windows.Forms.DataGridView();
             this.InvoiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,8 +155,9 @@
             this.Controls.Add(this.rbToday);
             this.Controls.Add(this.rbAll);
             this.Controls.Add(this.dgvOrderHistory);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDonHang";
-            this.Text = "frmDonHang";
+            this.Text = "Đơn Hàng";
             this.Load += new System.EventHandler(this.frmDonHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderHistory)).EndInit();
             this.ResumeLayout(false);

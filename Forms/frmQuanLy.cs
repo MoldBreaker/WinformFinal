@@ -121,7 +121,7 @@ namespace Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -137,6 +137,10 @@ namespace Forms
         {
             try 
             {
+                if(txtMa.Text.Trim().Length == 0)
+                {
+                    throw new Exception("Vui lòng chọn sản phẩm trước");
+                }
                 int productId = int.Parse(txtMa.Text);
                 int productCategory = int.Parse(cbbLoai.SelectedValue.ToString());
                 string productName = txtTen.Text;
@@ -179,6 +183,10 @@ namespace Forms
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
+                    if(txtMa.Text.Trim().Length == 0)
+                    {
+                        throw new Exception("Vùi lòng chọn sản phẩm trước");
+                    }
                     int ProductId = int.Parse(txtMa.Text);
                     productService.DeleteProduct(ProductId);
                     List<Product> pro = productService.GetAllProducts();
