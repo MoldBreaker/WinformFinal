@@ -16,7 +16,7 @@ namespace Forms
     public partial class frmTable : Form
     {
         private TableService tableService = new TableService();
-        public Table selectedTable;
+        public Table selectedTable = null;
         public frmTable()
         {
             InitializeComponent();
@@ -33,100 +33,106 @@ namespace Forms
             flpBan.Controls.Clear();
             for(int i = 0; i < tables.Count; i++)
             {
-                Panel panel = new System.Windows.Forms.Panel();
-                PictureBox pictureBox = new System.Windows.Forms.PictureBox();
-                panel.Controls.Add(pictureBox);
-                panel.Location = new System.Drawing.Point(3, 3);
-                panel.Name = "panel" + tables[i].TableId.ToString();
-                panel.Size = new System.Drawing.Size(82, 80);
-                panel.Click += new System.EventHandler(this.table_Click);
+                Button btn = new System.Windows.Forms.Button();
+                btn.Location = new System.Drawing.Point(3, 3);
+                btn.Name = tables[i].TableId.ToString();
+                btn.Size = new System.Drawing.Size(80, 50);
+                btn.TabIndex = 0;
                 if (tables[i].Status == 0)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.tablechuadat;
+                    btn.Text = tables[i].TableName;
                 }
                 else if (tables[i].Status == 1)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.table;
+                    btn.Text = tables[i].TableName + "(đã đặt)";
                 }
                 else if (tables[i].Status == 2)
                 {
-                    pictureBox.Image = global::Forms.Properties.Resources.tabledangsd;
+                    btn.Text = tables[i].TableName + "(đang sử dụng)";
                 }
-                pictureBox.Location = new System.Drawing.Point(4, 4);
-                pictureBox.Name = "PictureBox" + tables[i].TableId.ToString();
-                pictureBox.Size = new System.Drawing.Size(70, 50);
-                pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                pictureBox.TabIndex = 0;
-                pictureBox.TabStop = false;
-                pictureBox.Click += new System.EventHandler(this.table_Click);
-                pictureBox.Tag = tables[i];
-                panel.Tag = tables[i];
-                flpBan.Controls.Add(panel);
+                btn.UseVisualStyleBackColor = true;
+                btn.Click += new System.EventHandler(this.table_Click);
+                btn.Tag = tables[i];
+                btn.BackColor = System.Drawing.Color.FromArgb(255, 224, 192);
+                flpBan.Controls.Add(btn);
             }
         }
         private void table_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Panel panel = (Panel)sender;
-                selectedTable = (Table)panel.Tag;
-                txtTableID.Text = selectedTable.TableId.ToString();
-            }
-            catch 
-            {
-                PictureBox pictureBox = (PictureBox)sender;
-                selectedTable = (Table)pictureBox.Tag;
-                txtTableID.Text = selectedTable.TableId.ToString();
-            }
+            Button btn = (Button)sender;
+            selectedTable = (Table)btn.Tag;
+            txtTableID.Text = selectedTable.TableId.ToString();
         }
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
-            Table table = tableService.GetTableById(selectedTable.TableId);
-            if(table.Status == 0)
+            try 
             {
-                tableService.UpdateTableStatus(selectedTable.TableId, 2);
-                foreach(Panel panel in flpBan.Controls)
+                if(selectedTable == null)
                 {
-                    Table panelTable = (Table)panel.Tag;
-                    if (panelTable.TableId == table.TableId)
+                    throw new Exception("Vui lòng chọn bàn");
+                }
+                Table table = tableService.GetTableById(selectedTable.TableId);
+                if (table.Status == 0)
+                {
+                    tableService.UpdateTableStatus(selectedTable.TableId, 2);
+                    foreach (Button btn in flpBan.Controls)
                     {
-                        PictureBox pictureBox = (PictureBox)panel.Controls[0];
-                        pictureBox.Image = global::Forms.Properties.Resources.tabledangsd;
+                        Table btnTable = (Table)btn.Tag;
+                        if (btnTable.TableId == table.TableId)
+                        {
+                            btn.Text = btnTable.TableName + "(đang sử dụng)";
+                        }
                     }
+                    throw new Exception("Chọn bàn thành công");
+                }
+                else if (table.Status == 1)
+                {
+                    throw new Exception("Bàn này đã được đặt");
+                }
+                else if (table.Status == 2)
+                {
+                    throw new Exception("Bàn này đang được sử dụng");
                 }
             }
-            else if(table.Status == 1)
+            catch (Exception ex)
             {
-                MessageBox.Show("Bàn này đã được đặt");
+                MessageBox.Show(ex.Message);
             }
-            else if(table.Status == 2)
-            {
-                MessageBox.Show("Bàn này đang được sử dụng");
-            }
+            
         }
 
         private void btnFinishedUsing_Click(object sender, EventArgs e)
         {
-            Table table = tableService.GetTableById(selectedTable.TableId);
-            if (table.Status == 2)
+            try
             {
-                tableService.UpdateTableStatus(selectedTable.TableId, 0);
-                foreach (Panel panel in flpBan.Controls)
+                if (selectedTable == null)
                 {
-                    Table panelTable = (Table)panel.Tag;
-                    if (panelTable.TableId == table.TableId)
+                    throw new Exception("Vui lòng chọn bàn");
+                }
+                Table table = tableService.GetTableById(selectedTable.TableId);
+                if (table.Status == 2)
+                {
+                    tableService.UpdateTableStatus(selectedTable.TableId, 0);
+                    foreach (Button btn in flpBan.Controls)
                     {
-                        PictureBox pictureBox = (PictureBox)panel.Controls[0];
-                        pictureBox.Image = global::Forms.Properties.Resources.tablechuadat;
+                        Table btnTable = (Table)btn.Tag;
+                        if (btnTable.TableId == table.TableId)
+                        {
+                            btn.Text = btnTable.TableName;
+                        }
                     }
                 }
-            }
-            else if (table.Status == 1 || table.Status == 0)
+                else if (table.Status == 1 || table.Status == 0)
+                {
+                    throw new Exception("Bàn này chưa được sử dụng");
+                }
+                txtTableID.Text = "";
+            }catch (Exception ex)
             {
-                MessageBox.Show("Bàn này chưa được sử dụng");
+                MessageBox.Show(ex.Message);
             }
-            txtTableID.Text = "";
+            
         }
 
         public string GetTextBoxValue()
