@@ -108,6 +108,11 @@ namespace Forms
                 {
                     throw new Exception("Bạn chưa điền đầy đủ thông tin");
                 }
+                double SellPriceA;
+                if(!double.TryParse(txtGiaBan.Text, out SellPriceA))
+                {
+                    throw new Exception("Giá không đúng định dạng");
+                }
                 string ProductName = txtTen.Text;
                 double SellPrice = double.Parse(txtGiaBan.Text);
                 string Description = rtxtMoTa.Text;
@@ -144,6 +149,11 @@ namespace Forms
                 if(txtMa.Text.Trim().Length == 0)
                 {
                     throw new Exception("Vui lòng chọn sản phẩm trước");
+                }
+                double SellPriceA;
+                if (!double.TryParse(txtGiaBan.Text, out SellPriceA))
+                {
+                    throw new Exception("Giá không đúng định dạng");
                 }
                 int productId = int.Parse(txtMa.Text);
                 int productCategory = int.Parse(cbbLoai.SelectedValue.ToString());

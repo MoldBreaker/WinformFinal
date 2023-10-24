@@ -72,6 +72,7 @@
             // 
             this.txtMatKhauCu.Location = new System.Drawing.Point(211, 51);
             this.txtMatKhauCu.Name = "txtMatKhauCu";
+            this.txtMatKhauCu.PasswordChar = '●';
             this.txtMatKhauCu.Size = new System.Drawing.Size(187, 22);
             this.txtMatKhauCu.TabIndex = 3;
             // 
@@ -79,6 +80,7 @@
             // 
             this.txtCMatKhauMoi.Location = new System.Drawing.Point(211, 164);
             this.txtCMatKhauMoi.Name = "txtCMatKhauMoi";
+            this.txtCMatKhauMoi.PasswordChar = '●';
             this.txtCMatKhauMoi.Size = new System.Drawing.Size(187, 22);
             this.txtCMatKhauMoi.TabIndex = 4;
             // 
@@ -86,6 +88,7 @@
             // 
             this.txtMatKhauMoi.Location = new System.Drawing.Point(211, 108);
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
+            this.txtMatKhauMoi.PasswordChar = '●';
             this.txtMatKhauMoi.Size = new System.Drawing.Size(187, 22);
             this.txtMatKhauMoi.TabIndex = 5;
             // 
