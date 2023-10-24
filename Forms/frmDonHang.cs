@@ -54,14 +54,30 @@ namespace Forms
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtFind.Text);
-            Invoice invoice = invoiceService.GetInvoiceById(id);
-            dgvOrderHistory.Rows.Clear();
-            int index = dgvOrderHistory.Rows.Add();
-            dgvOrderHistory.Rows[index].Cells[0].Value = invoice.InvoiceId;
-            dgvOrderHistory.Rows[index].Cells[1].Value = invoice.User.Username;
-            dgvOrderHistory.Rows[index].Cells[2].Value = invoice.AfterDiscount;
-            dgvOrderHistory.Rows[index].Cells[3].Value = invoice.CreatedAt;
+            try
+            {
+                string IdStr = txtFind.Text.Trim();
+                int id;
+                if(!int.TryParse(IdStr, out id))
+                {
+                    throw new Exception("Mã không hợp lệ");
+                }
+                Invoice invoice = invoiceService.GetInvoiceById(id);
+                if(invoice == null)
+                {
+                    throw new Exception("Không tìm thấy hóa đơn");
+                }
+                dgvOrderHistory.Rows.Clear();
+                int index = dgvOrderHistory.Rows.Add();
+                dgvOrderHistory.Rows[index].Cells[0].Value = invoice.InvoiceId;
+                dgvOrderHistory.Rows[index].Cells[1].Value = invoice.User.Username;
+                dgvOrderHistory.Rows[index].Cells[2].Value = invoice.AfterDiscount;
+                dgvOrderHistory.Rows[index].Cells[3].Value = invoice.CreatedAt;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dgvLichSu_CellClick(object sender, DataGridViewCellEventArgs e)
