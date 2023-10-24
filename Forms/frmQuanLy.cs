@@ -104,6 +104,10 @@ namespace Forms
         {
             try
             {
+                if(txtTen.Text.Trim().Length == 0 || txtGiaBan.Text.Length == 0 || rtxtMoTa.Text.Trim().Length == 0) 
+                {
+                    MessageBox.Show("Bạn chưa điền đầy đủ thông tin");
+                }
                 string ProductName = txtTen.Text;
                 double SellPrice = double.Parse(txtGiaBan.Text);
                 string Description = rtxtMoTa.Text;
@@ -121,7 +125,6 @@ namespace Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -156,7 +159,6 @@ namespace Forms
             }
             catch(Exception ex) 
             {
-                MessageBox.Show(ex.Message);
             }
         }
 
