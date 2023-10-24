@@ -29,7 +29,7 @@ namespace Forms
                 string MKMoi = txtMatKhauMoi.Text;
                 string CMKMoi = txtCMatKhauMoi.Text;
                 userService.ChangePassword(user.UserId, MKCu, MKMoi, CMKMoi);
-                MessageBox.Show("Đổi Mật Khẩu Thành Công");
+                MessageBox.Show("Mật khẩu mới sẽ được áp dụng vào lần đăng nhập tiếp theo!");
                 Close();
             }
             catch(Exception ex)

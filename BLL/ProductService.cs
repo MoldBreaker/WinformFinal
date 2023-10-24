@@ -41,8 +41,12 @@ namespace BLL
             if(product.ProductName.Trim().Length == 0)
             {
                 throw new Exception("Tên không được để trống");
-            } 
-            if(product.SellPrice == 0)
+            }
+            if (product.SellPrice <= 0 || product.SellPrice > 500000)
+            {
+                throw new Exception("Giá không hợp lệ");
+            }
+            if (product.SellPrice == 0)
             {
                 throw new Exception("Giá không được để trống");
             }
